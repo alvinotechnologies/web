@@ -2,78 +2,128 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "Services", href: "#services" },
-  { label: "Products", href: "#products" },
-  { label: "Solutions", href: "#solutions" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Services",  href: "/services"  },
+  { label: "Solutions", href: "/solutions" },
+  { label: "Blog",      href: "/blog"      },
+  { label: "Contact",   href: "/contact"   },
 ];
 
 export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname               = usePathname();
+  const isHome                 = pathname === "/";
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const solid = !isHome || scrolled;
 
   return (
-    <nav className="w-full bg-white shadow-sm sticky top-0 z-50">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 shrink-0">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        solid
+          ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+
+        {/* Logo — always links to home */}
+        <Link href="/" className="flex items-center shrink-0 group" aria-label="Go to Inova home">
           <Image
             src="/logo.png"
-            alt="Inova Logo"
-            width={120}
-            height={40}
-            className="h-10 w-auto"
+            alt="Inova"
+            width={180}
+            height={60}
+            className={`w-auto transition-all duration-300 ${solid ? "h-12" : "h-16"}`}
             priority
           />
         </Link>
 
-        {/* Desktop nav links */}
-        <ul className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <li key={link.label}>
-              <Link
-                href={link.href}
-                className="text-sm font-medium text-gray-600 transition-all duration-200 hover:text-blue-600"
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        {/* Desktop nav */}
+        <nav aria-label="Main navigation" className="hidden md:block">
+          <ul className="flex items-center gap-8">
+            {navLinks.map((link) => {
+              const active = pathname.startsWith(link.href);
+              return (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className={`relative text-sm font-medium transition-colors duration-200
+                      after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full
+                      after:origin-left after:scale-x-0 after:rounded-full
+                      after:bg-gradient-to-r after:from-blue-600 after:to-purple-600
+                      after:transition-transform after:duration-200
+                      hover:after:scale-x-100
+                      ${solid ? "text-gray-700 hover:text-blue-600" : "text-white/90 hover:text-white"}
+                      ${active ? "text-blue-600 after:scale-x-100" : ""}
+                    `}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
 
-        {/* CTA button */}
-        <Link
-          href="#contact"
-          className="hidden md:flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 hover:from-blue-700 hover:to-purple-700"
-        >
-          Let&apos;s Build Together →
-        </Link>
+        {/* Right side: About link + CTA */}
+        <div className="hidden md:flex items-center gap-3">
+          <Link
+            href="/about"
+            className={`text-sm font-medium transition-colors duration-200 ${
+              solid ? "text-gray-600 hover:text-blue-600" : "text-white/80 hover:text-white"
+            } ${pathname === "/about" ? "text-blue-600" : ""}`}
+          >
+            About
+          </Link>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 hover:from-blue-700 hover:to-purple-700"
+          >
+            Let&apos;s Build Together →
+          </Link>
+        </div>
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden p-2 rounded-md text-gray-700"
+          className={`md:hidden p-2 rounded-md transition-colors ${solid ? "text-gray-700" : "text-white"}`}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
+          aria-expanded={menuOpen}
         >
-          <span className="block w-6 h-0.5 bg-gray-700 mb-1" />
-          <span className="block w-6 h-0.5 bg-gray-700 mb-1" />
-          <span className="block w-6 h-0.5 bg-gray-700" />
+          {menuOpen ? (
+            <svg className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          ) : (
+            <svg className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          )}
         </button>
       </div>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 px-4 pb-4">
-          <ul className="flex flex-col gap-3 pt-3">
-            {navLinks.map((link) => (
+        <div className="md:hidden bg-white border-t border-gray-100 shadow-lg">
+          <ul className="flex flex-col px-4 py-4 gap-1">
+            {[...navLinks, { label: "About", href: "/about" }].map((link) => (
               <li key={link.label}>
                 <Link
                   href={link.href}
-                  className="block text-sm font-medium text-gray-700 hover:text-blue-600"
+                  className={`block rounded-lg px-4 py-3 text-sm font-medium transition-colors duration-200 hover:bg-blue-50 hover:text-blue-600 ${
+                    pathname.startsWith(link.href) ? "bg-blue-50 text-blue-600" : "text-gray-700"
+                  }`}
                   onClick={() => setMenuOpen(false)}
                 >
                   {link.label}
@@ -81,15 +131,17 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-          <Link
-            href="#contact"
-            className="mt-4 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-5 py-2.5 text-sm font-semibold text-white"
-            onClick={() => setMenuOpen(false)}
-          >
-            Let&apos;s Build Together →
-          </Link>
+          <div className="px-4 pb-4">
+            <Link
+              href="/contact"
+              className="block w-full rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-5 py-3 text-center text-sm font-semibold text-white"
+              onClick={() => setMenuOpen(false)}
+            >
+              Let&apos;s Build Together →
+            </Link>
+          </div>
         </div>
       )}
-    </nav>
+    </header>
   );
 }

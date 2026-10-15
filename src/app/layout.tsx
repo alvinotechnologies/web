@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,19 +17,21 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Inova — Build. Innovate. Transform.",
   description:
-    "Inova delivers cutting-edge web, mobile, and cloud solutions that help businesses grow, automate, and scale.",
+    "Inova is a full-service digital innovation studio delivering world-class websites, web apps, mobile apps, cloud solutions, and AI integrations that help businesses grow.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-          <Navbar />
-          <main className="flex-1">{children}</main>
-        </body>
+      <body className="min-h-screen flex flex-col bg-white text-gray-900">
+        <Navbar />
+        {/* main content — no top padding on home (hero goes full bleed under transparent nav) */}
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
