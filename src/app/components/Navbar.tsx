@@ -32,7 +32,7 @@ export default function Navbar() {
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         solid
           ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100"
-          : "bg-transparent"
+          : "bg-white/0"
       }`}
     >
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -61,11 +61,11 @@ export default function Navbar() {
                     className={`relative text-sm font-medium transition-colors duration-200
                       after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full
                       after:origin-left after:scale-x-0 after:rounded-full
-                      after:bg-gradient-to-r after:from-blue-600 after:to-purple-600
+                      after:bg-gradient-to-r after:from-indigo-600 after:to-purple-600
                       after:transition-transform after:duration-200
                       hover:after:scale-x-100
-                      ${solid ? "text-gray-700 hover:text-blue-600" : "text-white/90 hover:text-white"}
-                      ${active ? "text-blue-600 after:scale-x-100" : ""}
+                      text-gray-700 hover:text-indigo-600
+                      ${active ? "text-indigo-600 after:scale-x-100" : ""}
                     `}
                   >
                     {link.label}
@@ -80,15 +80,14 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           <Link
             href="/about"
-            className={`text-sm font-medium transition-colors duration-200 ${
-              solid ? "text-gray-600 hover:text-blue-600" : "text-white/80 hover:text-white"
-            } ${pathname === "/about" ? "text-blue-600" : ""}`}
+            className={`text-sm font-medium transition-colors duration-200 text-gray-600 hover:text-indigo-600 ${pathname === "/about" ? "text-indigo-600" : ""}`}
           >
             About
           </Link>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 hover:from-blue-700 hover:to-purple-700"
+            className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
+            style={{background:"linear-gradient(135deg,#6366f1,#a855f7)"}}
           >
             Let&apos;s Build Together →
           </Link>
@@ -96,7 +95,7 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className={`md:hidden p-2 rounded-md transition-colors ${solid ? "text-gray-700" : "text-white"}`}
+          className="md:hidden p-2 rounded-md text-gray-700 transition-colors"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
           aria-expanded={menuOpen}
