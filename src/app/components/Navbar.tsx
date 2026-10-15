@@ -6,9 +6,10 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
+  { label: "About",     href: "/about"     },
+  { label: "Blog",      href: "/blog"      },
   { label: "Services",  href: "/services"  },
   { label: "Solutions", href: "/solutions" },
-  { label: "Blog",      href: "/blog"      },
   { label: "Contact",   href: "/contact"   },
 ];
 
@@ -76,14 +77,8 @@ export default function Navbar() {
           </ul>
         </nav>
 
-        {/* Right side: About link + CTA */}
+        {/* Right side: CTA */}
         <div className="hidden md:flex items-center gap-3">
-          <Link
-            href="/about"
-            className={`text-sm font-medium transition-colors duration-200 text-gray-600 hover:text-indigo-600 ${pathname === "/about" ? "text-indigo-600" : ""}`}
-          >
-            About
-          </Link>
           <Link
             href="/contact"
             className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
@@ -116,7 +111,7 @@ export default function Navbar() {
       {menuOpen && (
         <div className="md:hidden bg-white border-t border-gray-100 shadow-lg">
           <ul className="flex flex-col px-4 py-4 gap-1">
-            {[...navLinks, { label: "About", href: "/about" }].map((link) => (
+            {navLinks.map((link) => (
               <li key={link.label}>
                 <Link
                   href={link.href}

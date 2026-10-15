@@ -74,10 +74,22 @@ const services = [
 ];
 
 const whyPoints = [
-  { title: "Outcome-Driven Engineering",  desc: "KPIs agreed before a single line of code is written. We build toward measurable results, not just deliverables." },
-  { title: "Full-Stack Ownership",        desc: "One team owns design, development, infrastructure, and support — zero hand-off gaps, complete accountability." },
-  { title: "Transparent Collaboration",   desc: "Live project boards, weekly demos, and direct Slack access to your engineers. You're never in the dark." },
-  { title: "Built to Scale from Day One", desc: "Every architecture decision accounts for your next 10x growth. We've seen what skipping this costs — and we won't let it happen to you." },
+  {
+    title: "We Think Like Founders",
+    desc: "Most agencies optimise for hours billed. We optimise for your outcome. Before any work begins, we align on the metrics that actually matter to your business.",
+  },
+  {
+    title: "One Team, Zero Gaps",
+    desc: "Strategy, design, engineering, and DevOps — all under one roof. When your product needs to evolve, we don't pass the baton. We own the whole race.",
+  },
+  {
+    title: "Speed With Substance",
+    desc: "We move fast without cutting corners. Automated testing, code review, and CI/CD are non-negotiable defaults — not optional add-ons at the end of a sprint.",
+  },
+  {
+    title: "Partners, Not Vendors",
+    desc: "We've built long relationships because we care about what happens after launch. Seventy percent of our revenue comes from clients who've been with us for over two years.",
+  },
 ];
 
 const process = [
@@ -329,14 +341,20 @@ export default function Home() {
           <div>
             <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase mb-3">Why Inova</p>
             <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl leading-tight">
-              Technology That Moves
+              We Don&apos;t Just Build.
               <span className="block bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                Your Business Forward.
+                We Grow With You.
               </span>
             </h2>
             <p className="mt-5 text-gray-600 leading-relaxed">
-              We don't just ship features — we obsess over outcomes. Every engagement starts with
-              understanding your business model and growth goals before a single line of code is written.
+              Inova was founded on a simple belief: businesses deserve a technology partner
+              that measures success the same way they do. Not by lines of code shipped or hours
+              logged — but by real, compounding business value delivered.
+            </p>
+            <p className="mt-4 text-gray-600 leading-relaxed">
+              Over 12 years and 200+ projects across fintech, healthcare, logistics, and e-commerce,
+              we&apos;ve refined a model that combines senior engineering talent, honest communication,
+              and a genuine stake in your success.
             </p>
             <ul className="mt-8 space-y-5">
               {whyPoints.map(item => (
