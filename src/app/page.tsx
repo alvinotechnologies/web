@@ -218,8 +218,8 @@ export default function Home() {
           {/* ── RIGHT visual ── */}
           <div className="relative hidden lg:flex items-center justify-center min-h-[540px]">
 
-            {/* Dashboard card */}
-            <div className="relative z-10 w-[320px] rounded-2xl bg-white shadow-2xl border border-gray-100 overflow-hidden mr-[168px]">
+            {/* Dashboard card — centred in the space */}
+            <div className="relative z-10 w-[320px] rounded-2xl bg-white shadow-2xl border border-gray-100 overflow-hidden">
               <div className="px-4 py-2.5 flex items-center gap-1.5 bg-gray-50 border-b border-gray-100">
                 <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
                 <span className="h-2.5 w-2.5 rounded-full bg-yellow-400" />
@@ -250,17 +250,62 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Service badges — solid white, stacked right */}
-            <div className="absolute right-0 top-0 bottom-0 flex flex-col justify-center gap-2.5">
-              {badgeServices.map(b=>(
-                <div key={b.label}
-                  className="flex items-center gap-2.5 rounded-2xl bg-white px-3.5 py-2.5 shadow-lg border border-gray-100 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl cursor-default w-[155px]">
-                  <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-xl ${b.bg} ${b.tc}`}>
-                    {b.icon}
-                  </span>
-                  <span className="text-xs font-semibold text-gray-800">{b.label}</span>
-                </div>
-              ))}
+            {/* ── Icon-only badges scattered around the card ── */}
+
+            {/* Websites — top right */}
+            <div className="absolute top-6 right-8 z-20 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-xl border border-gray-100 transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl cursor-default"
+              title="Websites">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z"/></svg>
+              </span>
+            </div>
+
+            {/* Web Apps — right side upper-mid */}
+            <div className="absolute top-[130px] -right-6 z-20 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-xl border border-gray-100 transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl cursor-default"
+              title="Web Apps">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-purple-50 text-purple-600">
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+              </span>
+            </div>
+
+            {/* Mobile Apps — right side mid */}
+            <div className="absolute top-[260px] -right-4 z-20 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-xl border border-gray-100 transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl cursor-default"
+              title="Mobile Apps">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-green-50 text-green-600">
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+              </span>
+            </div>
+
+            {/* Marketing — bottom right */}
+            <div className="absolute bottom-[110px] -right-6 z-20 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-xl border border-gray-100 transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl cursor-default"
+              title="Digital Marketing">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-orange-50 text-orange-500">
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              </span>
+            </div>
+
+            {/* Cloud — bottom right corner */}
+            <div className="absolute bottom-8 right-8 z-20 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-xl border border-gray-100 transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl cursor-default"
+              title="Cloud Solutions">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-sky-50 text-sky-500">
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+              </span>
+            </div>
+
+            {/* AI — top left of right col */}
+            <div className="absolute top-16 left-4 z-20 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-xl border border-gray-100 transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl cursor-default"
+              title="AI & Automation">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-rose-50 text-rose-500">
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/><circle cx="18" cy="6" r="3"/></svg>
+              </span>
+            </div>
+
+            {/* DevOps — bottom left of right col */}
+            <div className="absolute bottom-16 left-4 z-20 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-xl border border-gray-100 transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl cursor-default"
+              title="Cloud & DevOps">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-sky-50 text-sky-600">
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </span>
             </div>
 
           </div>

@@ -82,7 +82,7 @@ export default function Navbar() {
           <Link
             href="/contact"
             className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
-            style={{background:"linear-gradient(135deg,#6366f1,#a855f7)"}}
+            style={{background:"linear-gradient(135deg,#4f7df9,#a855f7)"}}
           >
             Let&apos;s Build Together →
           </Link>
