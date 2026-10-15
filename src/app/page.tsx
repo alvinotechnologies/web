@@ -138,121 +138,127 @@ export default function Home() {
   return (
     <>
       {/* ════════════════════════════════════════════════════
-          HERO  —  white bg, navbar merges into it
+          HERO  —  background.png full bleed
       ════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden bg-white min-h-screen flex items-center">
+      <section className="relative overflow-hidden min-h-screen flex items-center">
 
-        {/* subtle radial wash — very light, no solid blue */}
-        <div aria-hidden className="pointer-events-none absolute inset-0">
-          <div className="absolute top-0 right-0 w-[70%] h-full"
-            style={{background:"radial-gradient(ellipse at 80% 40%, rgba(99,102,241,0.07) 0%, rgba(168,85,247,0.05) 40%, transparent 70%)"}} />
-          <div className="absolute bottom-0 left-0 w-[40%] h-[50%]"
-            style={{background:"radial-gradient(ellipse at 20% 80%, rgba(59,130,246,0.05) 0%, transparent 60%)"}} />
-        </div>
+        {/* Full-bleed background image */}
+        <Image
+          src="/background.png"
+          alt=""
+          fill
+          priority
+          className="object-cover object-center"
+          aria-hidden
+        />
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
+        {/* Dark overlay so text stays readable */}
+        <div aria-hidden className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/20" />
+
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
 
           {/* ── LEFT copy ── */}
           <div className="flex flex-col">
-            <p className="text-xs font-bold tracking-[0.3em] text-gray-400 uppercase mb-5">
-              Build &nbsp;•&nbsp; Innovate &nbsp;•&nbsp; Transform
-            </p>
+            {/* tagline pill */}
+            <span className="inline-flex items-center self-start gap-2 rounded-full border border-white/25 bg-white/10 backdrop-blur-sm px-5 py-1.5 text-xs font-bold text-white/90 uppercase tracking-[0.25em] mb-7">
+              Innovate &nbsp;·&nbsp; Execute &nbsp;·&nbsp; Elevate
+            </span>
 
-            <h1 className="text-5xl font-extrabold leading-[1.1] text-gray-900 sm:text-6xl lg:text-[4.2rem]">
-              We Build Digital
+            <h1 className="text-5xl font-extrabold leading-[1.08] text-white sm:text-6xl lg:text-[4.2rem]">
+              Turning Ideas Into
               <br />
-              Products That Create
-              <br />
-              <span className="bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 bg-clip-text text-transparent">
-                Real Impact.
+              <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                Intelligent Products
               </span>
+              <br />
+              That Scale.
             </h1>
 
-            <p className="mt-6 max-w-lg text-lg leading-relaxed text-gray-500">
-              From websites to powerful web &amp; mobile applications, digital
-              marketing to cloud solutions — we build technology that helps
-              businesses grow, automate and scale.
+            <p className="mt-6 max-w-lg text-lg leading-relaxed text-white/75">
+              Inova architects, builds, and launches world-class digital products — from
+              high-growth SaaS platforms and AI-powered tools to mobile apps and enterprise
+              cloud solutions that drive measurable business outcomes.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-5">
-              {/* filled gradient CTA */}
+              {/* primary CTA */}
               <Link href="/contact"
-                className="group inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-bold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl"
+                className="group inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-bold text-white shadow-2xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-indigo-500/40"
                 style={{background:"linear-gradient(135deg,#6366f1,#a855f7)"}}>
                 Start Your Project
                 <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
               </Link>
 
-              {/* play-button secondary */}
+              {/* secondary — ghost */}
               <Link href="/about"
-                className="group inline-flex items-center gap-3 text-sm font-semibold text-gray-700 hover:text-indigo-600 transition-colors duration-200">
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white shadow-md ring-1 ring-gray-200 text-indigo-600 transition-all duration-200 group-hover:ring-indigo-400 group-hover:shadow-lg text-base">
+                className="group inline-flex items-center gap-3 text-sm font-semibold text-white/80 hover:text-white transition-colors duration-200">
+                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white/15 backdrop-blur-sm ring-1 ring-white/30 text-white transition-all duration-200 group-hover:bg-white/25 group-hover:ring-white/50 text-base">
                   ▶
                 </span>
                 <span>
                   Watch Our Story
-                  <span className="block text-xs text-gray-400 font-normal">2 min</span>
+                  <span className="block text-xs text-white/50 font-normal">2 min</span>
                 </span>
               </Link>
+            </div>
+
+            {/* trust bar */}
+            <div className="mt-12 flex flex-wrap gap-6">
+              {[
+                { v: "200+",  l: "Projects" },
+                { v: "120+",  l: "Clients"  },
+                { v: "12+",   l: "Years"    },
+                { v: "99.9%", l: "Uptime"   },
+              ].map(s => (
+                <div key={s.l} className="text-center">
+                  <p className="text-2xl font-extrabold text-white">{s.v}</p>
+                  <p className="text-xs text-white/55 mt-0.5">{s.l}</p>
+                </div>
+              ))}
             </div>
           </div>
 
           {/* ── RIGHT visual ── */}
           <div className="relative hidden lg:flex items-center justify-center min-h-[540px]">
 
-            {/* Large logo watermark — decorative, centre of right column */}
-            <div aria-hidden className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-              <Image
-                src="/logo.png"
-                alt=""
-                width={420}
-                height={420}
-                className="object-contain"
-                style={{opacity:0.08, filter:"blur(0px)"}}
-              />
-            </div>
-
-            {/* Dashboard card — sits in front */}
-            <div className="relative z-10 w-[360px] rounded-2xl bg-white shadow-2xl border border-gray-100 overflow-hidden">
-              {/* titlebar */}
-              <div className="px-4 py-2.5 flex items-center gap-1.5 bg-gray-50 border-b border-gray-100">
+            {/* Dashboard card */}
+            <div className="relative z-10 w-[360px] rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl overflow-hidden">
+              <div className="px-4 py-2.5 flex items-center gap-1.5 bg-white/10 border-b border-white/10">
                 <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
                 <span className="h-2.5 w-2.5 rounded-full bg-yellow-400" />
                 <span className="h-2.5 w-2.5 rounded-full bg-green-400" />
-                <span className="ml-3 text-gray-400 text-[11px] font-medium">inova.app — Dashboard</span>
+                <span className="ml-3 text-white/60 text-[11px] font-medium">inova.app — Dashboard</span>
               </div>
               <div className="p-5">
-                <p className="text-sm font-bold text-gray-900">Build. Innovate. Grow.</p>
-                <p className="text-[11px] text-gray-400 mb-4">All your digital products in one place.</p>
-                {/* kpi row */}
+                <p className="text-sm font-bold text-white">Build. Innovate. Grow.</p>
+                <p className="text-[11px] text-white/50 mb-4">All your digital products in one place.</p>
                 <div className="grid grid-cols-4 gap-2 mb-4 text-center">
                   {[{v:"32",l:"Projects"},{v:"18",l:"Apps"},{v:"80+",l:"Clients"},{v:"99.9%",l:"Uptime"}].map(k=>(
-                    <div key={k.l} className="rounded-xl bg-indigo-50 py-2.5 px-1">
-                      <p className="text-xs font-extrabold text-indigo-700">{k.v}</p>
-                      <p className="text-[9px] text-gray-400 mt-0.5">{k.l}</p>
+                    <div key={k.l} className="rounded-xl bg-white/10 border border-white/10 py-2.5 px-1">
+                      <p className="text-xs font-extrabold text-indigo-300">{k.v}</p>
+                      <p className="text-[9px] text-white/40 mt-0.5">{k.l}</p>
                     </div>
                   ))}
                 </div>
-                {/* bar chart */}
-                <div className="rounded-xl bg-gray-50 p-3">
-                  <p className="text-[11px] font-semibold text-gray-600 mb-2">Growth Analytics</p>
+                <div className="rounded-xl bg-white/10 border border-white/10 p-3">
+                  <p className="text-[11px] font-semibold text-white/70 mb-2">Growth Analytics</p>
                   <div className="flex items-end gap-1 h-12">
                     {[35,52,38,68,52,82,70,90].map((h,i)=>(
                       <div key={i} className="flex-1 rounded-sm"
                         style={{height:`${h}%`,background:"linear-gradient(to top,#6366f1,#a855f7)"}} />
                     ))}
                   </div>
-                  <p className="mt-1.5 text-[11px] font-bold text-emerald-600">+29% Revenue</p>
+                  <p className="mt-1.5 text-[11px] font-bold text-emerald-400">+29% Revenue</p>
                 </div>
               </div>
             </div>
 
-            {/* service badges — stacked right */}
+            {/* service badges */}
             <div className="absolute right-0 top-0 bottom-0 flex flex-col justify-center gap-3 pr-2">
               {badgeServices.map(b=>(
                 <div key={b.label}
-                  className="flex items-center gap-2.5 rounded-2xl bg-white px-4 py-2.5 shadow-lg border border-gray-100 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl cursor-default w-[170px]">
-                  <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ${b.bg} ${b.tc} transition-transform duration-200 hover:scale-110`}>
+                  className="flex items-center gap-2.5 rounded-2xl bg-white/90 backdrop-blur-sm px-4 py-2.5 shadow-xl border border-white/50 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-2xl cursor-default w-[160px]">
+                  <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ${b.bg} ${b.tc}`}>
                     {b.icon}
                   </span>
                   <span className="text-xs font-semibold text-gray-800">{b.label}</span>
@@ -264,9 +270,9 @@ export default function Home() {
         </div>
 
         {/* scroll hint */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-1.5 text-gray-300">
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-1.5 text-white/40">
           <span className="text-[10px] tracking-widest uppercase">Scroll</span>
-          <span className="h-5 w-px bg-gradient-to-b from-gray-300 to-transparent animate-pulse" />
+          <span className="h-5 w-px bg-gradient-to-b from-white/40 to-transparent animate-pulse" />
         </div>
       </section>
 
@@ -498,28 +504,28 @@ export default function Home() {
       </section>
 
       {/* ════════════════════════════════════════════════════
-          CTA BAND  —  dark, with gradient text
+          CTA BAND  —  light, matching footer
       ════════════════════════════════════════════════════ */}
-      <section className="bg-gray-950 py-24">
+      <section className="bg-gray-50 border-t border-gray-100 py-24">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
+          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
             Ready to Build Something
-            <span className="block bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
               That Matters?
             </span>
           </h2>
-          <p className="mt-4 text-gray-400 text-lg">
+          <p className="mt-4 text-gray-500 text-lg">
             Tell us about your idea — we'll respond within one business day.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Link href="/contact"
-              className="group inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-bold text-white shadow-xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-2xl"
+              className="group inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-bold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl"
               style={{background:"linear-gradient(135deg,#6366f1,#a855f7)"}}>
               Start a Project
               <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
             </Link>
             <Link href="/about"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-4 text-sm font-semibold text-white transition-all duration-200 hover:bg-white/10 hover:border-white/40">
+              className="inline-flex items-center gap-2 rounded-full border border-gray-300 px-8 py-4 text-sm font-semibold text-gray-700 transition-all duration-200 hover:border-indigo-300 hover:text-indigo-600">
               Meet the Team
             </Link>
           </div>
