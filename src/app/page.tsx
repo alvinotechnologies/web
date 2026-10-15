@@ -5,32 +5,62 @@ import FooterYear from "./components/FooterYear";
 /* ─── service cards data ─────────────────────────────── */
 const services = [
   {
-    icon: "🌐",
+    icon: (
+      <svg className="h-8 w-8 text-blue-600" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z"/>
+      </svg>
+    ),
+    bg: "bg-blue-50",
     title: "Websites",
     desc: "Fast, responsive, and SEO-optimised websites built for impact.",
   },
   {
-    icon: "💻",
+    icon: (
+      <svg className="h-8 w-8 text-purple-600" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+        <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+      </svg>
+    ),
+    bg: "bg-purple-50",
     title: "Web Applications",
     desc: "Scalable SaaS and enterprise web apps with modern architecture.",
   },
   {
-    icon: "📱",
+    icon: (
+      <svg className="h-8 w-8 text-green-600" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+        <rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/>
+      </svg>
+    ),
+    bg: "bg-green-50",
     title: "Mobile Apps",
     desc: "Cross-platform iOS & Android apps that users love.",
   },
   {
-    icon: "📣",
+    icon: (
+      <svg className="h-8 w-8 text-orange-500" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+      </svg>
+    ),
+    bg: "bg-orange-50",
     title: "Digital Marketing",
     desc: "Data-driven campaigns that grow your brand and convert leads.",
   },
   {
-    icon: "☁️",
+    icon: (
+      <svg className="h-8 w-8 text-sky-500" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+        <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+      </svg>
+    ),
+    bg: "bg-sky-50",
     title: "Cloud Solutions",
     desc: "Secure, scalable cloud infrastructure and DevOps pipelines.",
   },
   {
-    icon: "🤖",
+    icon: (
+      <svg className="h-8 w-8 text-rose-500" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+        <path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/><circle cx="18" cy="6" r="3"/>
+      </svg>
+    ),
+    bg: "bg-rose-50",
     title: "AI Integration",
     desc: "Embed intelligent automation and AI into your products.",
   },
@@ -47,22 +77,42 @@ const stats = [
 /* ─── why choose us ─────────────────────────────────── */
 const reasons = [
   {
-    icon: "🚀",
+    icon: (
+      <svg className="h-8 w-8 text-blue-600" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+      </svg>
+    ),
+    bg: "bg-blue-50",
     title: "Rapid Delivery",
     desc: "Agile sprints and CI/CD pipelines get your product to market faster.",
   },
   {
-    icon: "🔒",
+    icon: (
+      <svg className="h-8 w-8 text-purple-600" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+        <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+      </svg>
+    ),
+    bg: "bg-purple-50",
     title: "Security First",
     desc: "Every solution is built with industry-standard security practices.",
   },
   {
-    icon: "📈",
+    icon: (
+      <svg className="h-8 w-8 text-green-600" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>
+      </svg>
+    ),
+    bg: "bg-green-50",
     title: "Growth Focused",
     desc: "We design for scale — your tech grows as your business grows.",
   },
   {
-    icon: "🤝",
+    icon: (
+      <svg className="h-8 w-8 text-orange-500" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+      </svg>
+    ),
+    bg: "bg-orange-50",
     title: "Dedicated Support",
     desc: "A real team behind every project, available when you need us.",
   },
@@ -137,49 +187,50 @@ export default function Home() {
             </div>
           </div>
 
-          {/* RIGHT: floating service cards */}
-          <div className="relative hidden lg:flex items-center justify-center">
-            {/* dashboard mockup placeholder */}
-            <div className="relative z-10 w-[420px] rounded-2xl bg-white shadow-2xl border border-gray-100 overflow-hidden">
+          {/* RIGHT: logo bg + dashboard card + service badges */}
+          <div className="relative hidden lg:flex items-center justify-center min-h-[520px]">
+
+            {/* ── Inova logo as large watermark bg ── */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+              <Image
+                src="/logo.png"
+                alt=""
+                width={480}
+                height={480}
+                className="object-contain opacity-[0.07]"
+                aria-hidden
+              />
+            </div>
+
+            {/* ── Dashboard card (centre) ── */}
+            <div className="relative z-10 w-[380px] rounded-2xl bg-white shadow-2xl border border-gray-100 overflow-hidden">
               <div className="bg-gradient-to-r from-blue-600 to-purple-600 px-5 py-3 flex items-center gap-2">
-                <span className="h-3 w-3 rounded-full bg-white/40" />
-                <span className="h-3 w-3 rounded-full bg-white/40" />
-                <span className="h-3 w-3 rounded-full bg-white/40" />
+                <span className="h-2.5 w-2.5 rounded-full bg-white/40" />
+                <span className="h-2.5 w-2.5 rounded-full bg-white/40" />
+                <span className="h-2.5 w-2.5 rounded-full bg-white/40" />
                 <span className="ml-3 text-white text-xs font-medium">
                   inova.io — Dashboard
                 </span>
               </div>
               <div className="p-5">
-                <p className="text-lg font-bold text-gray-900">
-                  Build. Innovate. Grow.
-                </p>
-                <p className="text-xs text-gray-500 mb-4">
-                  All your digital products in one place.
-                </p>
-                <div className="grid grid-cols-4 gap-3 text-center mb-5">
+                <p className="text-base font-bold text-gray-900">Build. Innovate. Grow.</p>
+                <p className="text-xs text-gray-500 mb-4">All your digital products in one place.</p>
+                <div className="grid grid-cols-4 gap-2 text-center mb-4">
                   {[
                     { v: "32", l: "Projects" },
                     { v: "18", l: "Apps" },
                     { v: "80+", l: "Clients" },
                     { v: "99.9%", l: "Uptime" },
                   ].map((s) => (
-                    <div
-                      key={s.l}
-                      className="rounded-xl bg-blue-50 py-3 px-2"
-                    >
-                      <p className="text-base font-bold text-blue-700">
-                        {s.v}
-                      </p>
+                    <div key={s.l} className="rounded-xl bg-blue-50 py-2.5 px-1">
+                      <p className="text-sm font-bold text-blue-700">{s.v}</p>
                       <p className="text-[10px] text-gray-500">{s.l}</p>
                     </div>
                   ))}
                 </div>
-                {/* mini bar chart */}
                 <div className="rounded-xl bg-gray-50 p-3">
-                  <p className="text-xs font-semibold text-gray-700 mb-2">
-                    Growth Analytics
-                  </p>
-                  <div className="flex items-end gap-1.5 h-16">
+                  <p className="text-xs font-semibold text-gray-700 mb-2">Growth Analytics</p>
+                  <div className="flex items-end gap-1 h-14">
                     {[40, 55, 35, 65, 50, 80, 70, 90].map((h, i) => (
                       <div
                         key={i}
@@ -188,31 +239,63 @@ export default function Home() {
                       />
                     ))}
                   </div>
-                  <p className="mt-1 text-xs font-semibold text-green-600">
-                    +29% Revenue
-                  </p>
+                  <p className="mt-1 text-xs font-semibold text-green-600">+29% Revenue</p>
                 </div>
               </div>
             </div>
 
-            {/* floating service badges */}
-            {[
-              { label: "Websites", icon: "🌐", pos: "-top-4 -right-6" },
-              { label: "Web Apps", icon: "💻", pos: "top-20 -right-10" },
-              { label: "Mobile Apps", icon: "📱", pos: "top-44 -right-6" },
-              { label: "Marketing", icon: "📣", pos: "bottom-28 -right-10" },
-              { label: "Cloud", icon: "☁️", pos: "bottom-4 -right-6" },
-            ].map((b) => (
-              <div
-                key={b.label}
-                className={`absolute ${b.pos} flex items-center gap-2 rounded-xl bg-white px-3 py-2 shadow-lg border border-gray-100 z-20`}
-              >
-                <span className="text-lg">{b.icon}</span>
-                <span className="text-xs font-semibold text-gray-700">
-                  {b.label}
-                </span>
-              </div>
-            ))}
+            {/* ── Floating service badges with SVG icons ── */}
+
+            {/* Websites */}
+            <div className="absolute -top-3 right-4 z-20 flex items-center gap-2.5 rounded-2xl bg-white px-4 py-2.5 shadow-xl border border-gray-100">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50">
+                <svg className="h-5 w-5 text-blue-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z"/>
+                </svg>
+              </span>
+              <span className="text-xs font-semibold text-gray-800">Websites</span>
+            </div>
+
+            {/* Web Applications */}
+            <div className="absolute top-[90px] -right-14 z-20 flex items-center gap-2.5 rounded-2xl bg-white px-4 py-2.5 shadow-xl border border-gray-100">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-purple-50">
+                <svg className="h-5 w-5 text-purple-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+                </svg>
+              </span>
+              <span className="text-xs font-semibold text-gray-800">Web Applications</span>
+            </div>
+
+            {/* Mobile Apps */}
+            <div className="absolute top-[210px] -right-10 z-20 flex items-center gap-2.5 rounded-2xl bg-white px-4 py-2.5 shadow-xl border border-gray-100">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-green-50">
+                <svg className="h-5 w-5 text-green-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/>
+                </svg>
+              </span>
+              <span className="text-xs font-semibold text-gray-800">Mobile Apps</span>
+            </div>
+
+            {/* Digital Marketing */}
+            <div className="absolute bottom-[110px] -right-14 z-20 flex items-center gap-2.5 rounded-2xl bg-white px-4 py-2.5 shadow-xl border border-gray-100">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-orange-50">
+                <svg className="h-5 w-5 text-orange-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                </svg>
+              </span>
+              <span className="text-xs font-semibold text-gray-800">Digital Marketing</span>
+            </div>
+
+            {/* Cloud Solutions */}
+            <div className="absolute bottom-0 right-4 z-20 flex items-center gap-2.5 rounded-2xl bg-white px-4 py-2.5 shadow-xl border border-gray-100">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-sky-50">
+                <svg className="h-5 w-5 text-sky-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+                </svg>
+              </span>
+              <span className="text-xs font-semibold text-gray-800">Cloud Solutions</span>
+            </div>
+
           </div>
         </div>
       </section>
@@ -254,7 +337,9 @@ export default function Home() {
                 key={s.title}
                 className="group rounded-2xl border border-gray-100 p-8 shadow-sm hover:shadow-xl hover:border-blue-100 transition-all duration-300"
               >
-                <span className="text-4xl">{s.icon}</span>
+                <span className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl ${s.bg}`}>
+                  {s.icon}
+                </span>
                 <h3 className="mt-4 text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
                   {s.title}
                 </h3>
@@ -295,7 +380,9 @@ export default function Home() {
                 key={r.title}
                 className="rounded-2xl bg-white p-8 shadow-sm text-center"
               >
-                <span className="text-4xl">{r.icon}</span>
+                <span className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl ${r.bg}`}>
+                  {r.icon}
+                </span>
                 <h3 className="mt-4 text-base font-bold text-gray-900">
                   {r.title}
                 </h3>
