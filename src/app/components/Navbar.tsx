@@ -37,7 +37,7 @@ export default function Navbar() {
             <li key={link.label}>
               <Link
                 href={link.href}
-                className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
+                className="text-sm font-medium text-gray-600 transition-all duration-200 hover:text-gray-900 hover:underline underline-offset-4 decoration-gray-300"
               >
                 {link.label}
               </Link>
@@ -48,7 +48,7 @@ export default function Navbar() {
         {/* CTA button */}
         <Link
           href="#contact"
-          className="hidden md:flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md hover:opacity-90 transition-opacity"
+          className="hidden md:flex items-center gap-2 rounded-full bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-gray-700 hover:shadow-lg hover:-translate-y-0.5"
         >
           Let&apos;s Build Together →
         </Link>
@@ -83,7 +83,7 @@ export default function Navbar() {
           </ul>
           <Link
             href="#contact"
-            className="mt-4 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-5 py-2.5 text-sm font-semibold text-white"
+            className="mt-4 inline-flex items-center gap-2 rounded-full bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:bg-gray-700"
             onClick={() => setMenuOpen(false)}
           >
             Let&apos;s Build Together →
