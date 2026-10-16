@@ -364,7 +364,7 @@ export default function Home() {
               logged — but by real, compounding business value delivered.
             </p>
             <p className="mt-4 text-gray-600 leading-relaxed">
-              Over 12 years and 200+ projects across fintech, healthcare, logistics, and e-commerce,
+              Since 2026 and across our first projects in fintech, healthcare, logistics, and e-commerce,
               we&apos;ve refined a model that combines senior engineering talent, honest communication,
               and a genuine stake in your success.
             </p>
