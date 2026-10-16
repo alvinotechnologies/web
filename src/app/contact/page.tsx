@@ -7,12 +7,7 @@ export const metadata: Metadata = {
 };
 
 const offices = [
-<<<<<<< HEAD
-  { city: "India", name: "PAVAN R", address: "Bangalore, India", email: "information.inova@gmail.com", phone: "+91 8925246499" },
-=======
-  { city: "London", address: "1 Canada Square, Canary Wharf, London E14 5AB", email: "hello@inova.io", phone: "+44 20 7946 0000" },
-  { city: "Dubai",  address: "Level 14, Boulevard Plaza Tower 1, Downtown Dubai", email: "dubai@inova.io", phone: "+971 4 123 4567" },
->>>>>>> d30fc797484088e7431e9bbf8caca2e0324df77d
+  { city: "India", name: "Pavan Kumar", address: "Bangalore, India", email: "information.inova@gmail.com", phone: "+91 8925246499" },
 ];
 
 const faqs = [
@@ -26,7 +21,7 @@ export default function ContactPage() {
   return (
     <div className="pt-20">
 
-      {/* ── Hero ── white, no dark bg */}
+      {/* ── Hero ── */}
       <section className="bg-white border-b border-gray-100 py-20 relative overflow-hidden">
         <div aria-hidden className="pointer-events-none absolute inset-0"
           style={{background:"radial-gradient(ellipse at 60% 50%, rgba(99,102,241,0.06) 0%, transparent 60%)"}} />
@@ -112,14 +107,9 @@ export default function ContactPage() {
             <div>
               <h2 className="text-xl font-extrabold text-gray-900 mb-5">Our Office</h2>
               {offices.map(o => (
-<<<<<<< HEAD
-                <div key={o.city} className="mb-6 rounded-2xl border border-gray-100 p-6 shadow-sm hover:shadow-md transition-shadow">
-                  <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-1">{o.city}</p>
-                  <p className="text-sm font-semibold text-gray-900 mb-1">{o.name}</p>
-=======
                 <div key={o.city} className="mb-5 rounded-2xl bg-white border border-gray-100 p-6 shadow-sm hover:shadow-md transition-shadow">
-                  <p className="text-xs font-bold text-indigo-600 uppercase tracking-widest mb-2">{o.city}</p>
->>>>>>> d30fc797484088e7431e9bbf8caca2e0324df77d
+                  <p className="text-xs font-bold text-indigo-600 uppercase tracking-widest mb-1">{o.city}</p>
+                  <p className="text-sm font-semibold text-gray-900 mb-1">{o.name}</p>
                   <p className="text-sm text-gray-600 mb-3">{o.address}</p>
                   <a href={`mailto:${o.email}`} className="block text-sm font-semibold text-gray-900 hover:text-indigo-600 transition-colors">{o.email}</a>
                   <a href={`tel:${o.phone.replace(/\s/g,"")}`} className="block text-sm text-gray-500 hover:text-indigo-600 transition-colors">{o.phone}</a>
@@ -138,11 +128,11 @@ export default function ContactPage() {
               <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">Follow Us</p>
               <div className="flex gap-3">
                 {[
-                  { label:"LinkedIn", href:"#" },
-                  { label:"X / Twitter", href:"#" },
-                  { label:"GitHub", href:"#" },
+                  { label: "LinkedIn",  href: "https://www.linkedin.com/company/inova-tech-solutions/?viewAsMember=true" },
+                  { label: "Instagram", href: "https://www.instagram.com/inova_tech_solution?mdxt=MWFxMWJ5bm45aG5kcg==" },
+                  { label: "WhatsApp",  href: "https://wa.me/918925246499" },
                 ].map(s => (
-                  <a key={s.label} href={s.href}
+                  <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
                     className="rounded-full border border-gray-200 px-4 py-1.5 text-xs font-semibold text-gray-600 hover:border-indigo-300 hover:text-indigo-600 transition-all">
                     {s.label}
                   </a>

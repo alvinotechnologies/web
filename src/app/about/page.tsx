@@ -11,44 +11,17 @@ const values = [
   { icon: "🎯", title: "Clarity Over Complexity",   desc: "We favour simple, well-understood solutions over clever ones. Maintainability is a feature." },
   { icon: "🚀", title: "Bias for Action",            desc: "Ideas are worthless without execution. We move decisively and learn from real feedback." },
   { icon: "🔒", title: "Trust Through Transparency", desc: "No hidden blockers or spin. We share the truth — including the uncomfortable parts." },
-<<<<<<< HEAD
-  { icon: "♾",  title: "Continuous Improvement",     desc: "Every project ends with a retrospective. Every system has an owner who cares about its quality." },
-=======
   { icon: "♾️", title: "Continuous Improvement",     desc: "Every project ends with a retrospective. Every system has an owner who cares about its quality." },
->>>>>>> d30fc797484088e7431e9bbf8caca2e0324df77d
   { icon: "🌍", title: "Impact at Scale",            desc: "We measure success by how much value we create for our clients' customers — not just deliverables." },
   { icon: "🤝", title: "People First",               desc: "Great products are built by happy, respected teams. We invest in culture, not just code." },
 ];
 
-const team = [
-  { name: "Aryan Mehta",  role: "Founder & CEO",          bio: "15 years in enterprise software. Previously engineering lead at a Series B fintech. Obsessed with product-market fit." },
-  { name: "Priya Nair",   role: "CTO",                    bio: "Former Google engineer. Specialises in distributed systems and high-availability architecture." },
-  { name: "Daniel Owusu", role: "Head of Product",        bio: "Shipped 30+ B2B SaaS products. Converts complex user research into elegant product decisions." },
-  { name: "Leila Karimi", role: "Head of Design",         bio: "Ex-Figma design advocate. Leads a team of UX/UI designers who believe accessibility is non-negotiable." },
-  { name: "Marcus Tan",   role: "Head of Cloud & DevOps", bio: "AWS certified solutions architect. Has migrated 50+ legacy systems to cloud-native infrastructure." },
-  { name: "Sofia Rossi",  role: "Head of AI",             bio: "PhD in Machine Learning. Leads Inova's AI practice, specialising in NLP and retrieval-augmented systems." },
-];
-
-const milestones = [
-  { year: "2012", event: "Inova founded as a two-person web agency in London." },
-  { year: "2015", event: "Launched our first SaaS product for the healthcare sector. 0 to 5,000 users in 6 months." },
-  { year: "2017", event: "Expanded into mobile development. Delivered 20 apps across fintech, retail, and logistics." },
-  { year: "2019", event: "Opened our cloud practice. First enterprise transformation engagement with a FTSE 250 company." },
-  { year: "2021", event: "Crossed 100 active clients. Team grew to 45 engineers, designers, and strategists." },
-  { year: "2023", event: "Launched our AI integration practice. First LLM-powered product shipped in production." },
-  { year: "2024", event: "Named one of Europe's fastest-growing tech studios by Clutch. 200+ projects delivered." },
-  { year: "2026", event: "Today — 60 team members across 4 time zones, serving clients on 5 continents." },
-];
 
 export default function AboutPage() {
   return (
     <div className="pt-20">
-<<<<<<< HEAD
-      {/* ── Hero ── */}
-=======
 
-      {/* ── Hero ── light, no dark bg */}
->>>>>>> d30fc797484088e7431e9bbf8caca2e0324df77d
+      {/* ── Hero ── */}
       <section className="bg-white border-b border-gray-100 py-20 relative overflow-hidden">
         <div aria-hidden className="pointer-events-none absolute inset-0"
           style={{background:"radial-gradient(ellipse at 80% 50%, rgba(99,102,241,0.06) 0%, transparent 60%)"}} />
@@ -68,7 +41,6 @@ export default function AboutPage() {
               measurable impact.
             </p>
           </div>
-<<<<<<< HEAD
 
           {/* ── Dashboard mock ── */}
           <div className="flex justify-center lg:justify-end">
@@ -128,14 +100,6 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
-=======
-          <div className="flex justify-center">
-            <div className="relative h-72 w-72 rounded-3xl flex items-center justify-center shadow-xl overflow-hidden"
-              style={{background:"linear-gradient(135deg,#6366f1,#a855f7)"}}>
-              <div aria-hidden className="absolute inset-0 opacity-10"
-                style={{backgroundImage:"radial-gradient(circle at 30% 30%, white 1px, transparent 1px)",backgroundSize:"28px 28px"}} />
-              <Image src="/logo.png" alt="Inova" width={180} height={180} className="object-contain relative z-10" />
->>>>>>> d30fc797484088e7431e9bbf8caca2e0324df77d
             </div>
           </div>
         </div>
@@ -189,58 +153,6 @@ export default function AboutPage() {
                 <p className="mt-2 text-sm text-gray-500 leading-relaxed">{v.desc}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Team ── */}
-      <section className="bg-gray-50 py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase mb-3">The Team</p>
-            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">Meet the People Behind Inova</h2>
-            <p className="mt-4 max-w-2xl mx-auto text-gray-500">60 engineers, designers, and strategists united by a love of hard problems and great products.</p>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {team.map(t => (
-              <div key={t.name} className="group rounded-2xl bg-white border border-gray-100 p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl text-xl font-extrabold text-white mb-4"
-                  style={{background:"linear-gradient(135deg,#6366f1,#a855f7)"}}>
-                  {t.name.charAt(0)}
-                </div>
-                <h3 className="text-base font-bold text-gray-900 group-hover:text-indigo-600 transition-colors">{t.name}</h3>
-                <p className="text-xs font-semibold text-indigo-600 mb-3">{t.role}</p>
-                <p className="text-sm text-gray-500 leading-relaxed">{t.bio}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Timeline ── */}
-      <section className="bg-white py-24">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase mb-3">Our Journey</p>
-            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">12 Years of Building</h2>
-          </div>
-          <div className="relative">
-            <div className="absolute left-6 top-0 bottom-0 w-px opacity-20"
-              style={{background:"linear-gradient(to bottom,#6366f1,#a855f7)"}} />
-            <div className="space-y-8">
-              {milestones.map(m => (
-                <div key={m.year} className="relative flex gap-6 group">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-white text-xs font-bold z-10 shadow-lg"
-                    style={{background:"linear-gradient(135deg,#6366f1,#a855f7)"}}>
-                    {m.year.slice(2)}
-                  </div>
-                  <div className="rounded-2xl bg-gray-50 border border-gray-100 px-6 py-4 shadow-sm flex-1 transition-all duration-300 group-hover:shadow-lg group-hover:border-indigo-100 group-hover:bg-white">
-                    <p className="text-xs font-bold text-indigo-600 mb-1">{m.year}</p>
-                    <p className="text-sm text-gray-700 leading-relaxed">{m.event}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
