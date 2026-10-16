@@ -3,13 +3,6 @@ import Link from "next/link";
 import { posts } from "./blog/data";
 
 /* ── data ──────────────────────────────────────────────── */
-const stats = [
-  { value: "200+",  label: "Projects Delivered" },
-  { value: "120+",  label: "Happy Clients"       },
-  { value: "12+",   label: "Years Experience"    },
-  { value: "99.9%", label: "Uptime SLA"          },
-];
-
 const services = [
   {
     icon: (
@@ -199,20 +192,7 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* trust bar */}
-            <div className="mt-12 flex flex-wrap gap-8">
-              {[
-                { v: "200+",  l: "Projects" },
-                { v: "120+",  l: "Clients"  },
-                { v: "12+",   l: "Years"    },
-                { v: "99.9%", l: "Uptime"   },
-              ].map(s => (
-                <div key={s.l}>
-                  <p className="text-2xl font-extrabold text-gray-900">{s.v}</p>
-                  <p className="text-xs text-gray-500 mt-0.5">{s.l}</p>
-                </div>
-              ))}
-            </div>
+
           </div>
 
           {/* ── RIGHT visual ── */}
@@ -318,23 +298,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════
-          STATS BAND  —  light gray, gradient text numbers
-      ════════════════════════════════════════════════════ */}
-      <section className="bg-gray-50 border-y border-gray-100 py-14">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-10 sm:grid-cols-4">
-            {stats.map(s => (
-              <div key={s.label} className="group text-center cursor-default transition-transform duration-200 hover:-translate-y-1">
-                <p className="text-4xl font-extrabold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                  {s.value}
-                </p>
-                <p className="mt-1 text-sm font-medium text-gray-500">{s.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* ════════════════════════════════════════════════════
           SERVICES PREVIEW
