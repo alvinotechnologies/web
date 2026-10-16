@@ -7,8 +7,7 @@ export const metadata: Metadata = {
 };
 
 const offices = [
-  { city: "London", address: "1 Canada Square, Canary Wharf, London E14 5AB", email: "hello@inova.io", phone: "+44 20 7946 0000" },
-  { city: "Dubai",  address: "Level 14, Boulevard Plaza Tower 1, Downtown Dubai", email: "dubai@inova.io",  phone: "+971 4 123 4567" },
+  { city: "India", name: "PAVAN R", address: "Bangalore, India", email: "information.inova@gmail.com", phone: "+91 8925246499" },
 ];
 
 const faqs = [
@@ -70,9 +69,9 @@ export default function ContactPage() {
                   <option>Web Development</option>
                   <option>Web Application / SaaS</option>
                   <option>Mobile App</option>
-                  <option>Cloud & DevOps</option>
-                  <option>Digital Marketing & SEO</option>
-                  <option>AI & Automation</option>
+                  <option>Cloud &amp; DevOps</option>
+                  <option>Digital Marketing &amp; SEO</option>
+                  <option>AI &amp; Automation</option>
                   <option>Not sure — need advice</option>
                 </select>
               </div>
@@ -105,10 +104,11 @@ export default function ContactPage() {
           {/* Info */}
           <div className="lg:col-span-2 space-y-8">
             <div>
-              <h2 className="text-xl font-extrabold text-gray-900 mb-5">Our Offices</h2>
+              <h2 className="text-xl font-extrabold text-gray-900 mb-5">Our Office</h2>
               {offices.map(o => (
                 <div key={o.city} className="mb-6 rounded-2xl border border-gray-100 p-6 shadow-sm hover:shadow-md transition-shadow">
-                  <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">{o.city}</p>
+                  <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-1">{o.city}</p>
+                  <p className="text-sm font-semibold text-gray-900 mb-1">{o.name}</p>
                   <p className="text-sm text-gray-600 mb-3">{o.address}</p>
                   <a href={`mailto:${o.email}`} className="block text-sm font-semibold text-gray-900 hover:text-blue-600 transition-colors">{o.email}</a>
                   <a href={`tel:${o.phone.replace(/\s/g,"")}`} className="block text-sm text-gray-500 hover:text-blue-600 transition-colors">{o.phone}</a>
@@ -119,7 +119,7 @@ export default function ContactPage() {
               <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">Response Time</p>
               <div className="rounded-2xl bg-gray-50 border border-gray-100 p-5">
                 <p className="text-sm text-gray-700 leading-relaxed">
-                  We respond to all enquiries within <strong>one business day</strong>. For urgent needs call our London office directly.
+                  We respond to all enquiries within <strong>one business day</strong>. For urgent needs call us directly.
                 </p>
               </div>
             </div>
