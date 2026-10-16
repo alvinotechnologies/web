@@ -11,7 +11,11 @@ const values = [
   { icon: "🎯", title: "Clarity Over Complexity",   desc: "We favour simple, well-understood solutions over clever ones. Maintainability is a feature." },
   { icon: "🚀", title: "Bias for Action",            desc: "Ideas are worthless without execution. We move decisively and learn from real feedback." },
   { icon: "🔒", title: "Trust Through Transparency", desc: "No hidden blockers or spin. We share the truth — including the uncomfortable parts." },
+<<<<<<< HEAD
   { icon: "♾",  title: "Continuous Improvement",     desc: "Every project ends with a retrospective. Every system has an owner who cares about its quality." },
+=======
+  { icon: "♾️", title: "Continuous Improvement",     desc: "Every project ends with a retrospective. Every system has an owner who cares about its quality." },
+>>>>>>> d30fc797484088e7431e9bbf8caca2e0324df77d
   { icon: "🌍", title: "Impact at Scale",            desc: "We measure success by how much value we create for our clients' customers — not just deliverables." },
   { icon: "🤝", title: "People First",               desc: "Great products are built by happy, respected teams. We invest in culture, not just code." },
 ];
@@ -39,7 +43,12 @@ const milestones = [
 export default function AboutPage() {
   return (
     <div className="pt-20">
+<<<<<<< HEAD
       {/* ── Hero ── */}
+=======
+
+      {/* ── Hero ── light, no dark bg */}
+>>>>>>> d30fc797484088e7431e9bbf8caca2e0324df77d
       <section className="bg-white border-b border-gray-100 py-20 relative overflow-hidden">
         <div aria-hidden className="pointer-events-none absolute inset-0"
           style={{background:"radial-gradient(ellipse at 80% 50%, rgba(99,102,241,0.06) 0%, transparent 60%)"}} />
@@ -59,6 +68,7 @@ export default function AboutPage() {
               measurable impact.
             </p>
           </div>
+<<<<<<< HEAD
 
           {/* ── Dashboard mock ── */}
           <div className="flex justify-center lg:justify-end">
@@ -118,6 +128,14 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
+=======
+          <div className="flex justify-center">
+            <div className="relative h-72 w-72 rounded-3xl flex items-center justify-center shadow-xl overflow-hidden"
+              style={{background:"linear-gradient(135deg,#6366f1,#a855f7)"}}>
+              <div aria-hidden className="absolute inset-0 opacity-10"
+                style={{backgroundImage:"radial-gradient(circle at 30% 30%, white 1px, transparent 1px)",backgroundSize:"28px 28px"}} />
+              <Image src="/logo.png" alt="Inova" width={180} height={180} className="object-contain relative z-10" />
+>>>>>>> d30fc797484088e7431e9bbf8caca2e0324df77d
             </div>
           </div>
         </div>

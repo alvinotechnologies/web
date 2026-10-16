@@ -39,13 +39,13 @@ export default function Navbar() {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
 
         {/* Logo — always links to home */}
-        <Link href="/" className="flex items-center shrink-0 group" aria-label="Go to Inova home">
+        <Link href="/" className="flex items-center shrink-0" aria-label="Go to Inova home">
           <Image
-            src="/logo.png"
+            src="/bg.png"
             alt="Inova"
             width={180}
             height={60}
-            className={`w-auto transition-all duration-300 ${solid ? "h-12" : "h-16"}`}
+            className={`w-auto object-contain transition-all duration-300 ${solid ? "h-12" : "h-16"}`}
             priority
           />
         </Link>
@@ -82,7 +82,7 @@ export default function Navbar() {
           <Link
             href="/contact"
             className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
-            style={{background:"linear-gradient(135deg,#6366f1,#a855f7)"}}
+            style={{background:"linear-gradient(135deg,#4f7df9,#a855f7)"}}
           >
             Let&apos;s Build Together →
           </Link>

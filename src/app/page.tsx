@@ -138,44 +138,47 @@ export default function Home() {
   return (
     <>
       {/* ════════════════════════════════════════════════════
-          HERO  —  white bg, navbar merges into it
+          HERO  —  background.png on white, no overlay
       ════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden bg-white min-h-screen flex items-center">
+      <section className="relative overflow-hidden min-h-screen flex items-center bg-white">
 
-        {/* subtle radial wash — very light, no solid blue */}
-        <div aria-hidden className="pointer-events-none absolute inset-0">
-          <div className="absolute top-0 right-0 w-[70%] h-full"
-            style={{background:"radial-gradient(ellipse at 80% 40%, rgba(99,102,241,0.07) 0%, rgba(168,85,247,0.05) 40%, transparent 70%)"}} />
-          <div className="absolute bottom-0 left-0 w-[40%] h-[50%]"
-            style={{background:"radial-gradient(ellipse at 20% 80%, rgba(59,130,246,0.05) 0%, transparent 60%)"}} />
-        </div>
+        {/* Background image — full bleed, no overlay, no transparency */}
+        <Image
+          src="/background.png"
+          alt=""
+          fill
+          priority
+          className="object-cover object-center"
+          aria-hidden
+        />
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
 
-          {/* ── LEFT copy ── */}
+          {/* ── LEFT copy ── dark text on the light/white bg image */}
           <div className="flex flex-col">
-            <p className="text-xs font-bold tracking-[0.3em] text-gray-400 uppercase mb-5">
-              Build &nbsp;•&nbsp; Innovate &nbsp;•&nbsp; Transform
-            </p>
+            {/* tagline pill */}
+            <span className="inline-flex items-center self-start gap-2 rounded-full border border-gray-300 bg-white/80 backdrop-blur-sm px-5 py-1.5 text-xs font-bold text-gray-600 uppercase tracking-[0.25em] mb-7">
+              Innovate &nbsp;·&nbsp; Execute &nbsp;·&nbsp; Elevate
+            </span>
 
-            <h1 className="text-5xl font-extrabold leading-[1.1] text-gray-900 sm:text-6xl lg:text-[4.2rem]">
-              We Build Digital
+            <h1 className="text-5xl font-extrabold leading-[1.08] text-gray-900 sm:text-6xl lg:text-[4.2rem]">
+              Turning Ideas Into
               <br />
-              Products That Create
-              <br />
-              <span className="bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 bg-clip-text text-transparent">
-                Real Impact.
+              <span className="bg-gradient-to-r from-indigo-600 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                Intelligent Products
               </span>
+              <br />
+              That Scale.
             </h1>
 
-            <p className="mt-6 max-w-lg text-lg leading-relaxed text-gray-500">
-              From websites to powerful web &amp; mobile applications, digital
-              marketing to cloud solutions — we build technology that helps
-              businesses grow, automate and scale.
+            <p className="mt-6 max-w-lg text-lg leading-relaxed text-gray-600">
+              Inova architects, builds, and launches world-class digital products — from
+              high-growth SaaS platforms and AI-powered tools to mobile apps and enterprise
+              cloud solutions that drive measurable business outcomes.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-5">
-              {/* filled gradient CTA */}
+              {/* primary CTA */}
               <Link href="/contact"
                 className="group inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-bold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl"
                 style={{background:"linear-gradient(135deg,#6366f1,#a855f7)"}}>
@@ -183,7 +186,7 @@ export default function Home() {
                 <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
               </Link>
 
-              {/* play-button secondary */}
+              {/* secondary */}
               <Link href="/about"
                 className="group inline-flex items-center gap-3 text-sm font-semibold text-gray-700 hover:text-indigo-600 transition-colors duration-200">
                 <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white shadow-md ring-1 ring-gray-200 text-indigo-600 transition-all duration-200 group-hover:ring-indigo-400 group-hover:shadow-lg text-base">
@@ -195,26 +198,28 @@ export default function Home() {
                 </span>
               </Link>
             </div>
+
+            {/* trust bar */}
+            <div className="mt-12 flex flex-wrap gap-8">
+              {[
+                { v: "200+",  l: "Projects" },
+                { v: "120+",  l: "Clients"  },
+                { v: "12+",   l: "Years"    },
+                { v: "99.9%", l: "Uptime"   },
+              ].map(s => (
+                <div key={s.l}>
+                  <p className="text-2xl font-extrabold text-gray-900">{s.v}</p>
+                  <p className="text-xs text-gray-500 mt-0.5">{s.l}</p>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* ── RIGHT visual ── */}
           <div className="relative hidden lg:flex items-center justify-center min-h-[540px]">
 
-            {/* Large logo watermark — decorative, centre of right column */}
-            <div aria-hidden className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-              <Image
-                src="/logo.png"
-                alt=""
-                width={420}
-                height={420}
-                className="object-contain"
-                style={{opacity:0.08, filter:"blur(0px)"}}
-              />
-            </div>
-
-            {/* Dashboard card — sits in front */}
-            <div className="relative z-10 w-[360px] rounded-2xl bg-white shadow-2xl border border-gray-100 overflow-hidden">
-              {/* titlebar */}
+            {/* Dashboard card — centred in the space */}
+            <div className="relative z-10 w-[320px] rounded-2xl bg-white shadow-2xl border border-gray-100 overflow-hidden">
               <div className="px-4 py-2.5 flex items-center gap-1.5 bg-gray-50 border-b border-gray-100">
                 <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
                 <span className="h-2.5 w-2.5 rounded-full bg-yellow-400" />
@@ -224,16 +229,14 @@ export default function Home() {
               <div className="p-5">
                 <p className="text-sm font-bold text-gray-900">Build. Innovate. Grow.</p>
                 <p className="text-[11px] text-gray-400 mb-4">All your digital products in one place.</p>
-                {/* kpi row */}
-                <div className="grid grid-cols-4 gap-2 mb-4 text-center">
+                <div className="grid grid-cols-4 gap-1.5 mb-4 text-center">
                   {[{v:"32",l:"Projects"},{v:"18",l:"Apps"},{v:"80+",l:"Clients"},{v:"99.9%",l:"Uptime"}].map(k=>(
-                    <div key={k.l} className="rounded-xl bg-indigo-50 py-2.5 px-1">
+                    <div key={k.l} className="rounded-xl bg-indigo-50 py-2 px-0.5">
                       <p className="text-xs font-extrabold text-indigo-700">{k.v}</p>
-                      <p className="text-[9px] text-gray-400 mt-0.5">{k.l}</p>
+                      <p className="text-[8px] text-gray-400 mt-0.5">{k.l}</p>
                     </div>
                   ))}
                 </div>
-                {/* bar chart */}
                 <div className="rounded-xl bg-gray-50 p-3">
                   <p className="text-[11px] font-semibold text-gray-600 mb-2">Growth Analytics</p>
                   <div className="flex items-end gap-1 h-12">
@@ -247,26 +250,71 @@ export default function Home() {
               </div>
             </div>
 
-            {/* service badges — stacked right */}
-            <div className="absolute right-0 top-0 bottom-0 flex flex-col justify-center gap-3 pr-2">
-              {badgeServices.map(b=>(
-                <div key={b.label}
-                  className="flex items-center gap-2.5 rounded-2xl bg-white px-4 py-2.5 shadow-lg border border-gray-100 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl cursor-default w-[170px]">
-                  <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ${b.bg} ${b.tc} transition-transform duration-200 hover:scale-110`}>
-                    {b.icon}
-                  </span>
-                  <span className="text-xs font-semibold text-gray-800">{b.label}</span>
-                </div>
-              ))}
+            {/* ── Icon-only badges scattered around the card ── */}
+
+            {/* Websites — top right */}
+            <div className="absolute top-6 right-8 z-20 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-xl border border-gray-100 transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl cursor-default"
+              title="Websites">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z"/></svg>
+              </span>
+            </div>
+
+            {/* Web Apps — right side upper-mid */}
+            <div className="absolute top-[130px] -right-6 z-20 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-xl border border-gray-100 transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl cursor-default"
+              title="Web Apps">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-purple-50 text-purple-600">
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+              </span>
+            </div>
+
+            {/* Mobile Apps — right side mid */}
+            <div className="absolute top-[260px] -right-4 z-20 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-xl border border-gray-100 transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl cursor-default"
+              title="Mobile Apps">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-green-50 text-green-600">
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+              </span>
+            </div>
+
+            {/* Marketing — bottom right */}
+            <div className="absolute bottom-[110px] -right-6 z-20 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-xl border border-gray-100 transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl cursor-default"
+              title="Digital Marketing">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-orange-50 text-orange-500">
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              </span>
+            </div>
+
+            {/* Cloud — bottom right corner */}
+            <div className="absolute bottom-8 right-8 z-20 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-xl border border-gray-100 transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl cursor-default"
+              title="Cloud Solutions">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-sky-50 text-sky-500">
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+              </span>
+            </div>
+
+            {/* AI — top left of right col */}
+            <div className="absolute top-16 left-4 z-20 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-xl border border-gray-100 transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl cursor-default"
+              title="AI & Automation">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-rose-50 text-rose-500">
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/><circle cx="18" cy="6" r="3"/></svg>
+              </span>
+            </div>
+
+            {/* DevOps — bottom left of right col */}
+            <div className="absolute bottom-16 left-4 z-20 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-xl border border-gray-100 transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl cursor-default"
+              title="Cloud & DevOps">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-sky-50 text-sky-600">
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </span>
             </div>
 
           </div>
         </div>
 
         {/* scroll hint */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-1.5 text-gray-300">
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-1.5 text-gray-400">
           <span className="text-[10px] tracking-widest uppercase">Scroll</span>
-          <span className="h-5 w-px bg-gradient-to-b from-gray-300 to-transparent animate-pulse" />
+          <span className="h-5 w-px bg-gradient-to-b from-gray-400 to-transparent animate-pulse" />
         </div>
       </section>
 
@@ -498,28 +546,28 @@ export default function Home() {
       </section>
 
       {/* ════════════════════════════════════════════════════
-          CTA BAND  —  dark, with gradient text
+          CTA BAND  —  light, matching footer
       ════════════════════════════════════════════════════ */}
-      <section className="bg-gray-950 py-24">
+      <section className="bg-gray-50 border-t border-gray-100 py-24">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
+          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
             Ready to Build Something
-            <span className="block bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
               That Matters?
             </span>
           </h2>
-          <p className="mt-4 text-gray-400 text-lg">
+          <p className="mt-4 text-gray-500 text-lg">
             Tell us about your idea — we'll respond within one business day.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Link href="/contact"
-              className="group inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-bold text-white shadow-xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-2xl"
+              className="group inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-bold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl"
               style={{background:"linear-gradient(135deg,#6366f1,#a855f7)"}}>
               Start a Project
               <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
             </Link>
             <Link href="/about"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-4 text-sm font-semibold text-white transition-all duration-200 hover:bg-white/10 hover:border-white/40">
+              className="inline-flex items-center gap-2 rounded-full border border-gray-300 px-8 py-4 text-sm font-semibold text-gray-700 transition-all duration-200 hover:border-indigo-300 hover:text-indigo-600">
               Meet the Team
             </Link>
           </div>
