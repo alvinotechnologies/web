@@ -76,17 +76,6 @@ export default function ContactPage() {
                 </select>
               </div>
               <div className="sm:col-span-2 flex flex-col gap-1.5">
-                <label className="text-xs font-bold text-gray-500 uppercase tracking-wide">Project Budget</label>
-                <select className="rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-700 outline-none transition-all duration-200 hover:border-indigo-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:bg-white">
-                  <option value="">Select a range…</option>
-                  <option>Under £10,000</option>
-                  <option>£10,000 – £30,000</option>
-                  <option>£30,000 – £75,000</option>
-                  <option>£75,000 – £150,000</option>
-                  <option>£150,000+</option>
-                </select>
-              </div>
-              <div className="sm:col-span-2 flex flex-col gap-1.5">
                 <label className="text-xs font-bold text-gray-500 uppercase tracking-wide">Tell us about your project *</label>
                 <textarea required rows={5} placeholder="Describe what you're building, what problem it solves, and any relevant timelines…"
                   className="rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-900 placeholder-gray-400 outline-none resize-none transition-all duration-200 hover:border-indigo-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:bg-white" />
