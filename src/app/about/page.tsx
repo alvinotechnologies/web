@@ -35,8 +35,7 @@ export default function AboutPage() {
               </span>
             </h1>
             <p className="mt-6 text-lg text-gray-500 leading-relaxed">
-              Inova is a full-service digital innovation studio founded in 2012.
-              Over 12 years we&apos;ve helped more than 120 companies — from seed-stage startups
+              Inova is a full-service digital innovation studio founded in 2026. Over 12 years we&apos;ve helped more than 120 companies — from seed-stage startups
               to global enterprises — design, build, and scale technology that creates real,
               measurable impact.
             </p>
