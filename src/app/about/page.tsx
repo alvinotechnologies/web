@@ -11,11 +11,7 @@ const values = [
   { icon: "🎯", title: "Clarity Over Complexity",   desc: "We favour simple, well-understood solutions over clever ones. Maintainability is a feature." },
   { icon: "🚀", title: "Bias for Action",            desc: "Ideas are worthless without execution. We move decisively and learn from real feedback." },
   { icon: "🔒", title: "Trust Through Transparency", desc: "No hidden blockers or spin. We share the truth — including the uncomfortable parts." },
-<<<<<<< HEAD
-  { icon: "♾",  title: "Continuous Improvement",     desc: "Every project ends with a retrospective. Every system has an owner who cares about its quality." },
-=======
   { icon: "♾️", title: "Continuous Improvement",     desc: "Every project ends with a retrospective. Every system has an owner who cares about its quality." },
->>>>>>> d30fc797484088e7431e9bbf8caca2e0324df77d
   { icon: "🌍", title: "Impact at Scale",            desc: "We measure success by how much value we create for our clients' customers — not just deliverables." },
   { icon: "🤝", title: "People First",               desc: "Great products are built by happy, respected teams. We invest in culture, not just code." },
 ];
@@ -43,12 +39,8 @@ const milestones = [
 export default function AboutPage() {
   return (
     <div className="pt-20">
-<<<<<<< HEAD
-      {/* ── Hero ── */}
-=======
 
-      {/* ── Hero ── light, no dark bg */}
->>>>>>> d30fc797484088e7431e9bbf8caca2e0324df77d
+      {/* ── Hero ── */}
       <section className="bg-white border-b border-gray-100 py-20 relative overflow-hidden">
         <div aria-hidden className="pointer-events-none absolute inset-0"
           style={{background:"radial-gradient(ellipse at 80% 50%, rgba(99,102,241,0.06) 0%, transparent 60%)"}} />
@@ -68,74 +60,12 @@ export default function AboutPage() {
               measurable impact.
             </p>
           </div>
-<<<<<<< HEAD
-
-          {/* ── Dashboard mock ── */}
-          <div className="flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-lg">
-              {/* Floating service pills on the right */}
-              <div className="absolute -right-4 top-8 flex flex-col gap-3 z-10">
-                {["Websites", "Web Apps", "Mobile Apps", "Marketing", "Cloud"].map((s) => (
-                  <div key={s} className="rounded-xl bg-white/90 backdrop-blur px-5 py-2.5 text-sm font-semibold text-gray-800 shadow-lg border-2 border-blue-400 whitespace-nowrap">
-                    {s}
-                  </div>
-                ))}
-              </div>
-
-              {/* Main dashboard card */}
-              <div className="rounded-2xl bg-white shadow-2xl overflow-hidden w-[82%]">
-                {/* Browser chrome */}
-                <div className="flex items-center gap-1.5 px-4 py-3 bg-gray-50 border-b border-gray-100">
-                  <span className="h-3 w-3 rounded-full bg-red-400" />
-                  <span className="h-3 w-3 rounded-full bg-yellow-400" />
-                  <span className="h-3 w-3 rounded-full bg-green-400" />
-                  <span className="ml-3 text-xs text-gray-400 font-medium">inova.app — Dashboard</span>
-                </div>
-
-                {/* Dashboard body */}
-                <div className="p-6">
-                  <h3 className="text-lg font-extrabold text-gray-900">Build. Innovate. Grow.</h3>
-                  <p className="text-xs text-gray-400 mb-5">All your digital products in one place.</p>
-
-                  {/* Stats row */}
-                  <div className="grid grid-cols-4 gap-2 mb-6">
-                    {[
-                      { value: "32",    label: "Projects" },
-                      { value: "18",    label: "Apps"     },
-                      { value: "80+",   label: "Clients"  },
-                      { value: "99.9%", label: "Uptime"   },
-                    ].map((s) => (
-                      <div key={s.label} className="rounded-xl bg-indigo-50 p-3 text-center">
-                        <p className="text-sm font-extrabold text-indigo-600">{s.value}</p>
-                        <p className="text-[10px] text-gray-400 mt-0.5">{s.label}</p>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Growth Analytics chart */}
-                  <div className="rounded-xl bg-gray-50 p-4">
-                    <p className="text-xs font-bold text-gray-700 mb-4">Growth Analytics</p>
-                    <div className="flex items-end gap-1.5 h-16">
-                      {[40, 55, 45, 65, 60, 75, 70, 80].map((h, i) => (
-                        <div
-                          key={i}
-                          className="flex-1 rounded-t-md bg-gradient-to-t from-purple-600 to-violet-400"
-                          style={{ height: `${h}%` }}
-                        />
-                      ))}
-                    </div>
-                    <p className="mt-3 text-xs font-bold text-green-500">+29% Revenue</p>
-                  </div>
-                </div>
-              </div>
-=======
           <div className="flex justify-center">
             <div className="relative h-72 w-72 rounded-3xl flex items-center justify-center shadow-xl overflow-hidden"
               style={{background:"linear-gradient(135deg,#6366f1,#a855f7)"}}>
               <div aria-hidden className="absolute inset-0 opacity-10"
                 style={{backgroundImage:"radial-gradient(circle at 30% 30%, white 1px, transparent 1px)",backgroundSize:"28px 28px"}} />
               <Image src="/logo.png" alt="Inova" width={180} height={180} className="object-contain relative z-10" />
->>>>>>> d30fc797484088e7431e9bbf8caca2e0324df77d
             </div>
           </div>
         </div>
@@ -253,7 +183,7 @@ export default function AboutPage() {
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link href="/contact"
               className="group inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-bold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl"
-              style={{background:"linear-gradient(135deg,#6366f1,#a855f7)"}}>
+              style={{background:"linear-gradient(135deg,#4f7df9,#a855f7)"}}>
               Start a Project
               <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
             </Link>

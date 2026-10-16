@@ -7,12 +7,13 @@ export const metadata: Metadata = {
 };
 
 const offices = [
-<<<<<<< HEAD
-  { city: "India", name: "PAVAN R", address: "Bangalore, India", email: "information.inova@gmail.com", phone: "+91 8925246499" },
-=======
-  { city: "London", address: "1 Canada Square, Canary Wharf, London E14 5AB", email: "hello@inova.io", phone: "+44 20 7946 0000" },
-  { city: "Dubai",  address: "Level 14, Boulevard Plaza Tower 1, Downtown Dubai", email: "dubai@inova.io", phone: "+971 4 123 4567" },
->>>>>>> d30fc797484088e7431e9bbf8caca2e0324df77d
+  {
+    city: "India",
+    name: "PAVAN R",
+    address: "Bangalore, India",
+    email: "information.inova@gmail.com",
+    phone: "+91 8925246499",
+  },
 ];
 
 const faqs = [
@@ -26,7 +27,7 @@ export default function ContactPage() {
   return (
     <div className="pt-20">
 
-      {/* ── Hero ── white, no dark bg */}
+      {/* ── Hero ── */}
       <section className="bg-white border-b border-gray-100 py-20 relative overflow-hidden">
         <div aria-hidden className="pointer-events-none absolute inset-0"
           style={{background:"radial-gradient(ellipse at 60% 50%, rgba(99,102,241,0.06) 0%, transparent 60%)"}} />
@@ -84,11 +85,11 @@ export default function ContactPage() {
                 <label className="text-xs font-bold text-gray-500 uppercase tracking-wide">Project Budget</label>
                 <select className="rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-700 outline-none transition-all duration-200 hover:border-indigo-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:bg-white">
                   <option value="">Select a range…</option>
-                  <option>Under £10,000</option>
-                  <option>£10,000 – £30,000</option>
-                  <option>£30,000 – £75,000</option>
-                  <option>£75,000 – £150,000</option>
-                  <option>£150,000+</option>
+                  <option>Under ₹50,000</option>
+                  <option>₹50,000 – ₹2,00,000</option>
+                  <option>₹2,00,000 – ₹5,00,000</option>
+                  <option>₹5,00,000 – ₹10,00,000</option>
+                  <option>₹10,00,000+</option>
                 </select>
               </div>
               <div className="sm:col-span-2 flex flex-col gap-1.5">
@@ -99,7 +100,7 @@ export default function ContactPage() {
               <div className="sm:col-span-2">
                 <button type="submit"
                   className="group w-full rounded-full px-8 py-4 text-sm font-bold text-white shadow-lg transition-all duration-200 hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0"
-                  style={{background:"linear-gradient(135deg,#6366f1,#a855f7)"}}>
+                  style={{background:"linear-gradient(135deg,#4f7df9,#a855f7)"}}>
                   Send Message
                   <span className="ml-2 inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
                 </button>
@@ -112,20 +113,16 @@ export default function ContactPage() {
             <div>
               <h2 className="text-xl font-extrabold text-gray-900 mb-5">Our Office</h2>
               {offices.map(o => (
-<<<<<<< HEAD
-                <div key={o.city} className="mb-6 rounded-2xl border border-gray-100 p-6 shadow-sm hover:shadow-md transition-shadow">
-                  <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-1">{o.city}</p>
-                  <p className="text-sm font-semibold text-gray-900 mb-1">{o.name}</p>
-=======
                 <div key={o.city} className="mb-5 rounded-2xl bg-white border border-gray-100 p-6 shadow-sm hover:shadow-md transition-shadow">
-                  <p className="text-xs font-bold text-indigo-600 uppercase tracking-widest mb-2">{o.city}</p>
->>>>>>> d30fc797484088e7431e9bbf8caca2e0324df77d
+                  <p className="text-xs font-bold text-indigo-600 uppercase tracking-widest mb-1">{o.city}</p>
+                  <p className="text-sm font-semibold text-gray-900 mb-1">{o.name}</p>
                   <p className="text-sm text-gray-600 mb-3">{o.address}</p>
                   <a href={`mailto:${o.email}`} className="block text-sm font-semibold text-gray-900 hover:text-indigo-600 transition-colors">{o.email}</a>
                   <a href={`tel:${o.phone.replace(/\s/g,"")}`} className="block text-sm text-gray-500 hover:text-indigo-600 transition-colors">{o.phone}</a>
                 </div>
               ))}
             </div>
+
             <div>
               <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">Response Time</p>
               <div className="rounded-2xl bg-white border border-gray-100 p-5 shadow-sm">
@@ -134,19 +131,25 @@ export default function ContactPage() {
                 </p>
               </div>
             </div>
+
             <div>
               <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">Follow Us</p>
-              <div className="flex gap-3">
-                {[
-                  { label:"LinkedIn", href:"#" },
-                  { label:"X / Twitter", href:"#" },
-                  { label:"GitHub", href:"#" },
-                ].map(s => (
-                  <a key={s.label} href={s.href}
-                    className="rounded-full border border-gray-200 px-4 py-1.5 text-xs font-semibold text-gray-600 hover:border-indigo-300 hover:text-indigo-600 transition-all">
-                    {s.label}
-                  </a>
-                ))}
+              <div className="flex gap-3 flex-wrap">
+                <a href="https://www.linkedin.com/company/inova-tech-solutions/?viewAsMember=true"
+                  target="_blank" rel="noopener noreferrer"
+                  className="rounded-full border border-gray-200 px-4 py-1.5 text-xs font-semibold text-gray-600 hover:border-indigo-300 hover:text-indigo-600 transition-all">
+                  LinkedIn
+                </a>
+                <a href="https://www.instagram.com/inova_tech_solution"
+                  target="_blank" rel="noopener noreferrer"
+                  className="rounded-full border border-gray-200 px-4 py-1.5 text-xs font-semibold text-gray-600 hover:border-pink-300 hover:text-pink-600 transition-all">
+                  Instagram
+                </a>
+                <a href="https://wa.me/918925246499"
+                  target="_blank" rel="noopener noreferrer"
+                  className="rounded-full border border-gray-200 px-4 py-1.5 text-xs font-semibold text-gray-600 hover:border-green-300 hover:text-green-600 transition-all">
+                  WhatsApp
+                </a>
               </div>
             </div>
           </div>
