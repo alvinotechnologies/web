@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About — Inova",
-  description: "Learn about Inova's mission, vision, values, and the team behind 200+ successful digital products.",
+  description: "Learn about Inova's mission, vision, values, and the team behind our successful digital products.",
 };
 
 const values = [
@@ -35,7 +35,7 @@ export default function AboutPage() {
               </span>
             </h1>
             <p className="mt-6 text-lg text-gray-500 leading-relaxed">
-              Inova is a full-service digital innovation studio founded in 2026. Over 12 years we&apos;ve helped more than 120 companies — from seed-stage startups
+              Inova is a full-service digital innovation studio founded in 2026. We help companies — from seed-stage startups
               to global enterprises — design, build, and scale technology that creates real,
               measurable impact.
             </p>
