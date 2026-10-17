@@ -16,13 +16,37 @@ const values = [
   { icon: "🤝", title: "People First",               desc: "Great products are built by happy, respected teams. We invest in culture, not just code." },
 ];
 
-const team = [
-  { name: "Aryan Mehta",  role: "Founder & CEO",          bio: "15 years in enterprise software. Previously engineering lead at a Series B fintech. Obsessed with product-market fit." },
-  { name: "Priya Nair",   role: "CTO",                    bio: "Former Google engineer. Specialises in distributed systems and high-availability architecture." },
-  { name: "Daniel Owusu", role: "Head of Product",        bio: "Shipped 30+ B2B SaaS products. Converts complex user research into elegant product decisions." },
-  { name: "Leila Karimi", role: "Head of Design",         bio: "Ex-Figma design advocate. Leads a team of UX/UI designers who believe accessibility is non-negotiable." },
-  { name: "Marcus Tan",   role: "Head of Cloud & DevOps", bio: "AWS certified solutions architect. Has migrated 50+ legacy systems to cloud-native infrastructure." },
-  { name: "Sofia Rossi",  role: "Head of AI",             bio: "PhD in Machine Learning. Leads Inova Tech's AI practice, specialising in NLP and retrieval-augmented systems." },
+const whyChoose = [
+  {
+    icon: "🏆",
+    title: "Proven Track Record",
+    desc: "200+ products delivered across fintech, healthcare, logistics, e-commerce, and enterprise SaaS. We've seen what works — and what doesn't.",
+  },
+  {
+    icon: "⚡",
+    title: "Speed Without Compromise",
+    desc: "Agile two-week sprints, CI/CD pipelines on day one, and automated testing baked into every project. Fast delivery that doesn't cut corners.",
+  },
+  {
+    icon: "🔍",
+    title: "Full Transparency",
+    desc: "Live project boards, weekly video demos, and direct Slack access to your engineers. You always know exactly where your project stands.",
+  },
+  {
+    icon: "🌐",
+    title: "End-to-End Capability",
+    desc: "Strategy, UX design, frontend, backend, mobile, cloud, AI, and marketing — all under one roof. No gaps, no hand-offs, no finger-pointing.",
+  },
+  {
+    icon: "🔒",
+    title: "Security by Default",
+    desc: "OWASP top-10 compliance, encryption at rest and in transit, and regular penetration testing built into every engagement from day one.",
+  },
+  {
+    icon: "🤝",
+    title: "Long-Term Relationships",
+    desc: "Over 70% of our revenue comes from returning clients. We measure our success by how much your business grows after we launch.",
+  },
 ];
 
 const milestones = [
@@ -124,28 +148,48 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── Team ── */}
+      {/* ── Why Choose Us ── */}
       <section className="bg-gray-50 py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase mb-3">The Team</p>
-            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">Meet the People Behind Inova Tech</h2>
+            <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase mb-3">Why Inova Tech</p>
+            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">What Makes Us Different</h2>
             <p className="mt-4 max-w-2xl mx-auto text-gray-500">
-              Engineers, designers, and strategists united by a love of hard problems and great products.
+              We&apos;ve refined our approach across hundreds of projects. Here&apos;s what clients
+              consistently tell us sets us apart.
             </p>
           </div>
+
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {team.map(t => (
-              <div key={t.name} className="group rounded-2xl bg-white border border-gray-100 p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl text-xl font-extrabold text-white mb-4"
-                  style={{background:"linear-gradient(135deg,#6366f1,#a855f7)"}}>
-                  {t.name.charAt(0)}
-                </div>
-                <h3 className="text-base font-bold text-gray-900 group-hover:text-indigo-600 transition-colors">{t.name}</h3>
-                <p className="text-xs font-semibold text-indigo-600 mb-3">{t.role}</p>
-                <p className="text-sm text-gray-500 leading-relaxed">{t.bio}</p>
+            {whyChoose.map(w => (
+              <div key={w.title}
+                className="group rounded-2xl bg-white border border-gray-100 p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                <span className="text-4xl">{w.icon}</span>
+                <h3 className="mt-4 text-base font-bold text-gray-900 group-hover:text-indigo-600 transition-colors">
+                  {w.title}
+                </h3>
+                <p className="mt-2 text-sm text-gray-500 leading-relaxed">{w.desc}</p>
               </div>
             ))}
+          </div>
+
+          {/* Client industries strip */}
+          <div className="mt-16 rounded-2xl bg-white border border-gray-100 p-8 shadow-sm">
+            <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase text-center mb-6">
+              Industries We Serve
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              {[
+                "FinTech","HealthTech","E-Commerce","Logistics","SaaS",
+                "EdTech","Real Estate","Retail","AI / ML","Enterprise",
+                "Media","Non-Profit",
+              ].map(ind => (
+                <span key={ind}
+                  className="rounded-full border border-gray-200 bg-gray-50 px-5 py-2 text-sm font-medium text-gray-700 hover:border-indigo-300 hover:text-indigo-600 hover:bg-indigo-50 transition-all duration-200 cursor-default">
+                  {ind}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
