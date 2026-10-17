@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Inova — Build. Innovate. Transform.",
+  title: "Inova Tech — Build. Innovate. Transform.",
   description:
-    "Inova is a full-service digital innovation studio delivering world-class websites, web apps, mobile apps, cloud solutions, and AI integrations that help businesses grow.",
+    "Inova Tech is a full-service digital innovation studio delivering world-class websites, web apps, mobile apps, cloud solutions, and AI integrations that help businesses grow.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

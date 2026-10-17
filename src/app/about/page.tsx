@@ -3,8 +3,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About — Inova",
-  description: "Learn about Inova's mission, vision, values, and the team behind 200+ successful digital products.",
+  title: "About — Inova Tech",
+  description: "Learn about Inova Tech's mission, vision, values, and the team behind 200+ successful digital products.",
 };
 
 const values = [
@@ -22,11 +22,11 @@ const team = [
   { name: "Daniel Owusu", role: "Head of Product",        bio: "Shipped 30+ B2B SaaS products. Converts complex user research into elegant product decisions." },
   { name: "Leila Karimi", role: "Head of Design",         bio: "Ex-Figma design advocate. Leads a team of UX/UI designers who believe accessibility is non-negotiable." },
   { name: "Marcus Tan",   role: "Head of Cloud & DevOps", bio: "AWS certified solutions architect. Has migrated 50+ legacy systems to cloud-native infrastructure." },
-  { name: "Sofia Rossi",  role: "Head of AI",             bio: "PhD in Machine Learning. Leads Inova's AI practice, specialising in NLP and retrieval-augmented systems." },
+  { name: "Sofia Rossi",  role: "Head of AI",             bio: "PhD in Machine Learning. Leads Inova Tech's AI practice, specialising in NLP and retrieval-augmented systems." },
 ];
 
 const milestones = [
-  { year: "2012", event: "Inova founded as a two-person web agency in London." },
+  { year: "2012", event: "Inova Tech founded as a two-person web agency in London." },
   { year: "2015", event: "Launched our first SaaS product for the healthcare sector. 0 to 5,000 users in 6 months." },
   { year: "2017", event: "Expanded into mobile development. Delivered 20 apps across fintech, retail, and logistics." },
   { year: "2019", event: "Opened our cloud practice. First enterprise transformation engagement with a FTSE 250 company." },
@@ -46,7 +46,7 @@ export default function AboutPage() {
           style={{background:"radial-gradient(ellipse at 80% 50%, rgba(99,102,241,0.06) 0%, transparent 60%)"}} />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid gap-12 lg:grid-cols-2 items-center">
           <div>
-            <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase mb-4">About Inova</p>
+            <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase mb-4">About Inova Tech</p>
             <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl lg:text-6xl leading-tight">
               We Build the
               <span className="block bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
@@ -54,7 +54,7 @@ export default function AboutPage() {
               </span>
             </h1>
             <p className="mt-6 text-lg text-gray-500 leading-relaxed">
-              Inova is a full-service digital innovation studio founded in 2012.
+              Inova Tech is a full-service digital innovation studio founded in 2012.
               Over 12 years we&apos;ve helped more than 120 companies — from seed-stage startups
               to global enterprises — design, build, and scale technology that creates real,
               measurable impact.
@@ -65,7 +65,7 @@ export default function AboutPage() {
               style={{background:"linear-gradient(135deg,#6366f1,#a855f7)"}}>
               <div aria-hidden className="absolute inset-0 opacity-10"
                 style={{backgroundImage:"radial-gradient(circle at 30% 30%, white 1px, transparent 1px)",backgroundSize:"28px 28px"}} />
-              <Image src="/logo.png" alt="Inova" width={180} height={180} className="object-contain relative z-10" />
+              <Image src="/logo.png" alt="Inova Tech" width={180} height={180} className="object-contain relative z-10" />
             </div>
           </div>
         </div>
@@ -79,7 +79,7 @@ export default function AboutPage() {
             <h2 className="text-2xl font-extrabold text-gray-900 mb-4">To democratise world-class technology.</h2>
             <p className="text-gray-600 leading-relaxed">
               We believe exceptional software shouldn&apos;t be the exclusive preserve of companies
-              with massive engineering budgets. Inova exists to give ambitious businesses — regardless
+              with massive engineering budgets. Inova Tech exists to give ambitious businesses — regardless
               of size — access to the same calibre of product thinking, design craft, and engineering
               rigour as the world&apos;s best tech companies.
             </p>
@@ -128,7 +128,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase mb-3">The Team</p>
-            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">Meet the People Behind Inova</h2>
+            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">Meet the People Behind Inova Tech</h2>
             <p className="mt-4 max-w-2xl mx-auto text-gray-500">60 engineers, designers, and strategists united by a love of hard problems and great products.</p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

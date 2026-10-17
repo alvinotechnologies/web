@@ -69,14 +69,14 @@ export default function Footer() {
             <Link href="/" className="inline-block mb-6">
               <Image
                 src="/bg.png"
-                alt="Inova"
+                alt="Inova Tech"
                 width={150}
                 height={50}
                 className="h-12 w-auto object-contain"
               />
             </Link>
             <p className="text-sm leading-relaxed text-gray-500 max-w-xs">
-              Inova is a full-service digital innovation studio. We design, build,
+              Inova Tech is a full-service digital innovation studio. We design, build,
               and scale technology that turns ambitious ideas into products people love.
             </p>
 
@@ -140,7 +140,7 @@ export default function Footer() {
         {/* ── Bottom bar ── */}
         <div className="pt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-between">
           <p className="text-xs text-gray-400">
-            © <FooterYear /> Inova Technologies Ltd. All rights reserved.
+            © <FooterYear /> Inova Tech Ltd. All rights reserved.
           </p>
           <div className="flex items-center gap-1 text-xs text-gray-400">
             <span className="h-1 w-1 rounded-full bg-indigo-500 inline-block" />
