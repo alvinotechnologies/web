@@ -115,8 +115,8 @@ export default function Navbar() {
               <li key={link.label}>
                 <Link
                   href={link.href}
-                  className={`block rounded-lg px-4 py-3 text-sm font-medium transition-colors duration-200 hover:bg-blue-50 hover:text-blue-600 ${
-                    pathname.startsWith(link.href) ? "bg-blue-50 text-blue-600" : "text-gray-700"
+                  className={`block rounded-lg px-4 py-3 text-sm font-medium transition-colors duration-200 hover:bg-indigo-50 hover:text-indigo-600 ${
+                    pathname.startsWith(link.href) ? "bg-indigo-50 text-indigo-600" : "text-gray-700"
                   }`}
                   onClick={() => setMenuOpen(false)}
                 >

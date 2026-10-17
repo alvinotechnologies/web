@@ -130,7 +130,7 @@ export default function Home() {
           aria-hidden
         />
 
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 sm:pt-28 pb-12 sm:pb-16 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center w-full">
 
           {/* ── LEFT copy ── dark text on the light/white bg image */}
           <div className="flex flex-col">
@@ -139,7 +139,7 @@ export default function Home() {
               Innovate &nbsp;·&nbsp; Execute &nbsp;·&nbsp; Elevate
             </span>
 
-            <h1 className="text-5xl font-extrabold leading-[1.08] text-gray-900 sm:text-6xl lg:text-[4.2rem]">
+            <h1 className="text-3xl font-extrabold leading-[1.1] text-gray-900 sm:text-5xl lg:text-[4.2rem]">
               Turning Ideas Into
               <br />
               <span className="bg-gradient-to-r from-indigo-600 via-purple-500 to-pink-500 bg-clip-text text-transparent">
@@ -177,6 +177,34 @@ export default function Home() {
               </Link>
             </div>
 
+            {/* Mobile-only: stats + service pills — shown instead of desktop right column */}
+            <div className="mt-10 lg:hidden">
+              {/* Stats row */}
+              <div className="grid grid-cols-4 gap-3 text-center mb-6">
+                {[{v:"200+",l:"Projects"},{v:"120+",l:"Clients"},{v:"12+",l:"Years"},{v:"99.9%",l:"Uptime"}].map(s=>(
+                  <div key={s.l}>
+                    <p className="text-lg font-extrabold text-gray-900">{s.v}</p>
+                    <p className="text-[11px] text-gray-400 mt-0.5">{s.l}</p>
+                  </div>
+                ))}
+              </div>
+              {/* Service pills */}
+              <div className="flex flex-wrap gap-2">
+                {[
+                  {label:"Websites",  bg:"bg-blue-50",   tc:"text-blue-600"  },
+                  {label:"Web Apps",  bg:"bg-purple-50", tc:"text-purple-600"},
+                  {label:"Mobile",    bg:"bg-green-50",  tc:"text-green-600" },
+                  {label:"Marketing", bg:"bg-orange-50", tc:"text-orange-500"},
+                  {label:"Cloud",     bg:"bg-sky-50",    tc:"text-sky-500"   },
+                  {label:"AI",        bg:"bg-rose-50",   tc:"text-rose-500"  },
+                ].map(b=>(
+                  <span key={b.label}
+                    className={`inline-flex items-center rounded-full px-4 py-1.5 text-xs font-semibold ${b.bg} ${b.tc}`}>
+                    {b.label}
+                  </span>
+                ))}
+              </div>
+            </div>
 
           </div>
 
@@ -374,18 +402,18 @@ export default function Home() {
           </div>
 
           {/* visual — logo on gradient card */}
-          <div className="relative flex justify-center">
-            <div className="relative h-80 w-80 rounded-3xl flex items-center justify-center shadow-2xl overflow-hidden"
+          <div className="relative flex justify-center overflow-hidden py-6">
+            <div className="relative h-56 w-56 sm:h-72 sm:w-72 rounded-3xl flex items-center justify-center shadow-2xl overflow-hidden"
               style={{background:"linear-gradient(135deg,#6366f1,#a855f7)"}}>
               {/* bg pattern */}
               <div aria-hidden className="absolute inset-0 opacity-10"
                 style={{backgroundImage:"radial-gradient(circle at 30% 30%, white 1px, transparent 1px), radial-gradient(circle at 70% 70%, white 1px, transparent 1px)",backgroundSize:"32px 32px"}} />
-              <Image src="/logo.png" alt="Inova Tech" width={200} height={200} className="object-contain relative z-10" />
+              <Image src="/logo.png" alt="Inova Tech" width={200} height={200} className="object-contain relative z-10 w-32 sm:w-44 h-auto" />
             </div>
-            {/* floating accent squares */}
-            <div className="absolute -bottom-5 -right-5 h-24 w-24 rounded-2xl opacity-20"
+            {/* floating accent squares — hidden on very small screens */}
+            <div className="absolute -bottom-5 -right-5 h-24 w-24 rounded-2xl opacity-20 hidden sm:block"
               style={{background:"linear-gradient(135deg,#a855f7,#6366f1)"}} />
-            <div className="absolute -top-5 -left-5 h-16 w-16 rounded-xl opacity-15"
+            <div className="absolute -top-5 -left-5 h-16 w-16 rounded-xl opacity-15 hidden sm:block"
               style={{background:"linear-gradient(135deg,#6366f1,#a855f7)"}} />
           </div>
         </div>

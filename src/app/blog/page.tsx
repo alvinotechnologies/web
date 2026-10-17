@@ -44,7 +44,7 @@ export default function BlogPage() {
           {/* Featured */}
           <Link
             href={`/blog/${featured.slug}`}
-            className="group mb-14 grid gap-8 rounded-3xl border border-gray-100 bg-gray-50 p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 lg:grid-cols-2 block"
+            className="group mb-14 grid gap-8 rounded-3xl border border-gray-100 bg-gray-50 p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 lg:grid-cols-2"
           >
             <div className="flex flex-col justify-center">
               <div className="flex items-center gap-3 mb-4">
