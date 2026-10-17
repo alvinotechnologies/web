@@ -49,17 +49,6 @@ const whyChoose = [
   },
 ];
 
-const milestones = [
-  { year: "2012", event: "Inova Tech founded as a two-person web agency in London." },
-  { year: "2015", event: "Launched our first SaaS product for the healthcare sector. 0 to 5,000 users in 6 months." },
-  { year: "2017", event: "Expanded into mobile development. Delivered 20 apps across fintech, retail, and logistics." },
-  { year: "2019", event: "Opened our cloud practice. First enterprise transformation engagement with a FTSE 250 company." },
-  { year: "2021", event: "Crossed 100 active clients. Team grew to 45 engineers, designers, and strategists." },
-  { year: "2023", event: "Launched our AI integration practice. First LLM-powered product shipped in production." },
-  { year: "2024", event: "Named one of the fastest-growing tech studios by Clutch. 200+ projects delivered." },
-  { year: "2026", event: "Today — serving clients on 5 continents with a passionate team of builders." },
-];
-
 export default function AboutPage() {
   return (
     <div className="pt-20">
@@ -194,30 +183,87 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── Timeline ── */}
+      {/* ── How We Work ── */}
       <section className="bg-white py-24">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase mb-3">Our Journey</p>
-            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">Years of Building</h2>
+            <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase mb-3">Our Process</p>
+            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">How We Work</h2>
+            <p className="mt-4 max-w-2xl mx-auto text-gray-500">
+              A transparent, repeatable delivery process built on trust, real communication,
+              and a shared obsession with outcomes.
+            </p>
           </div>
-          <div className="relative">
-            <div className="absolute left-6 top-0 bottom-0 w-px opacity-20"
-              style={{background:"linear-gradient(to bottom,#6366f1,#a855f7)"}} />
-            <div className="space-y-8">
-              {milestones.map(m => (
-                <div key={m.year} className="relative flex gap-6 group">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-white text-xs font-bold z-10 shadow-lg"
-                    style={{background:"linear-gradient(135deg,#6366f1,#a855f7)"}}>
-                    {m.year.slice(2)}
-                  </div>
-                  <div className="rounded-2xl bg-gray-50 border border-gray-100 px-6 py-4 shadow-sm flex-1 transition-all duration-300 group-hover:shadow-lg group-hover:border-indigo-100 group-hover:bg-white">
-                    <p className="text-xs font-bold text-indigo-600 mb-1">{m.year}</p>
-                    <p className="text-sm text-gray-700 leading-relaxed">{m.event}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+
+          {/* Steps */}
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                n: "01",
+                title: "Discovery & Scoping",
+                desc: "We spend time understanding your business goals, target users, and technical constraints before writing a single line of code. No assumptions.",
+                icon: "🔍",
+              },
+              {
+                n: "02",
+                title: "Architecture & Planning",
+                desc: "Our technical leads design the right stack, define sprint milestones, and agree KPIs upfront. You know exactly what you're getting and when.",
+                icon: "🏗️",
+              },
+              {
+                n: "03",
+                title: "Design & Prototype",
+                desc: "High-fidelity wireframes and interactive prototypes are tested with real users before development begins — saving cost and catching problems early.",
+                icon: "🎨",
+              },
+              {
+                n: "04",
+                title: "Agile Build & Iterate",
+                desc: "Two-week sprints with continuous deployment. You see a live demo every fortnight and give direct feedback to your assigned engineers.",
+                icon: "⚡",
+              },
+              {
+                n: "05",
+                title: "QA & Launch",
+                desc: "Automated test suites, security audits, and load testing before every release. We handle go-live, monitoring, and post-launch stabilisation.",
+                icon: "🚀",
+              },
+              {
+                n: "06",
+                title: "Grow & Optimise",
+                desc: "Post-launch isn't the end — it's the beginning. We analyse real user behaviour, run A/B tests, and iterate continuously to compound your results.",
+                icon: "📈",
+              },
+            ].map((step, i) => (
+              <div key={step.n}
+                className="group relative rounded-2xl border border-gray-100 bg-gray-50 p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:bg-white overflow-hidden">
+                {/* step number accent */}
+                <span className="absolute top-5 right-6 text-6xl font-extrabold text-gray-100 select-none transition-colors duration-300 group-hover:text-indigo-50">
+                  {step.n}
+                </span>
+                <span className="text-3xl mb-4 block">{step.icon}</span>
+                <h3 className="text-base font-bold text-gray-900 group-hover:text-indigo-600 transition-colors">
+                  {step.title}
+                </h3>
+                <p className="mt-2 text-sm text-gray-500 leading-relaxed">{step.desc}</p>
+                {/* connector dot */}
+                {i < 5 && (
+                  <div className="hidden lg:block absolute -right-4 top-1/2 -translate-y-1/2 h-2 w-2 rounded-full bg-indigo-200 z-10" />
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom CTA band */}
+          <div className="mt-14 rounded-2xl p-8 text-center"
+            style={{background:"linear-gradient(135deg,rgba(99,102,241,0.06),rgba(168,85,247,0.06))"}}>
+            <p className="text-lg font-bold text-gray-900">Ready to see this process in action?</p>
+            <p className="mt-2 text-gray-500 text-sm">Book a free 30-minute discovery call — no obligation, no pitch deck.</p>
+            <a href="/contact"
+              className="mt-5 inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl"
+              style={{background:"linear-gradient(135deg,#4f7df9,#a855f7)"}}>
+              Book a Discovery Call →
+            </a>
           </div>
         </div>
       </section>
