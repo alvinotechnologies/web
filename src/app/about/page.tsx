@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About — Inova Tech",
-  description: "Learn about Inova Tech's mission, vision, values, and the team behind 200+ successful digital products.",
+  description: "Learn about Inova Tech's mission, vision, values, and the team behind our successful digital products.",
 };
 
 const values = [
@@ -32,8 +32,8 @@ const milestones = [
   { year: "2019", event: "Opened our cloud practice. First enterprise transformation engagement with a FTSE 250 company." },
   { year: "2021", event: "Crossed 100 active clients. Team grew to 45 engineers, designers, and strategists." },
   { year: "2023", event: "Launched our AI integration practice. First LLM-powered product shipped in production." },
-  { year: "2024", event: "Named one of Europe's fastest-growing tech studios by Clutch. 200+ projects delivered." },
-  { year: "2026", event: "Today — 60 team members across 4 time zones, serving clients on 5 continents." },
+  { year: "2024", event: "Named one of the fastest-growing tech studios by Clutch. 200+ projects delivered." },
+  { year: "2026", event: "Today — serving clients on 5 continents with a passionate team of builders." },
 ];
 
 export default function AboutPage() {
@@ -54,10 +54,9 @@ export default function AboutPage() {
               </span>
             </h1>
             <p className="mt-6 text-lg text-gray-500 leading-relaxed">
-              Inova Tech is a full-service digital innovation studio founded in 2012.
-              Over 12 years we&apos;ve helped more than 120 companies — from seed-stage startups
-              to global enterprises — design, build, and scale technology that creates real,
-              measurable impact.
+              Inova Tech is a full-service digital innovation studio. We help companies —
+              from seed-stage startups to global enterprises — design, build, and scale
+              technology that creates real, measurable impact.
             </p>
           </div>
           <div className="flex justify-center">
@@ -109,7 +108,9 @@ export default function AboutPage() {
           <div className="text-center mb-14">
             <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase mb-3">How We Work</p>
             <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">Our Core Values</h2>
-            <p className="mt-4 max-w-2xl mx-auto text-gray-500">These aren&apos;t marketing words — they&apos;re the principles we apply every day in every engagement.</p>
+            <p className="mt-4 max-w-2xl mx-auto text-gray-500">
+              These aren&apos;t marketing words — they&apos;re the principles we apply every day in every engagement.
+            </p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {values.map(v => (
@@ -129,7 +130,9 @@ export default function AboutPage() {
           <div className="text-center mb-14">
             <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase mb-3">The Team</p>
             <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">Meet the People Behind Inova Tech</h2>
-            <p className="mt-4 max-w-2xl mx-auto text-gray-500">60 engineers, designers, and strategists united by a love of hard problems and great products.</p>
+            <p className="mt-4 max-w-2xl mx-auto text-gray-500">
+              Engineers, designers, and strategists united by a love of hard problems and great products.
+            </p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {team.map(t => (
@@ -152,7 +155,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase mb-3">Our Journey</p>
-            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">12 Years of Building</h2>
+            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">Years of Building</h2>
           </div>
           <div className="relative">
             <div className="absolute left-6 top-0 bottom-0 w-px opacity-20"

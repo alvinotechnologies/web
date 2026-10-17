@@ -7,13 +7,7 @@ export const metadata: Metadata = {
 };
 
 const offices = [
-  {
-    city: "India",
-    name: "PAVAN R",
-    address: "Bangalore, India",
-    email: "information.inova@gmail.com",
-    phone: "+91 8925246499",
-  },
+  { city: "India", name: "Pavan Kumar", address: "Bangalore, India", email: "information.inova@gmail.com", phone: "+91 8925246499" },
 ];
 
 const faqs = [
@@ -82,17 +76,6 @@ export default function ContactPage() {
                 </select>
               </div>
               <div className="sm:col-span-2 flex flex-col gap-1.5">
-                <label className="text-xs font-bold text-gray-500 uppercase tracking-wide">Project Budget</label>
-                <select className="rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-700 outline-none transition-all duration-200 hover:border-indigo-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:bg-white">
-                  <option value="">Select a range…</option>
-                  <option>Under ₹50,000</option>
-                  <option>₹50,000 – ₹2,00,000</option>
-                  <option>₹2,00,000 – ₹5,00,000</option>
-                  <option>₹5,00,000 – ₹10,00,000</option>
-                  <option>₹10,00,000+</option>
-                </select>
-              </div>
-              <div className="sm:col-span-2 flex flex-col gap-1.5">
                 <label className="text-xs font-bold text-gray-500 uppercase tracking-wide">Tell us about your project *</label>
                 <textarea required rows={5} placeholder="Describe what you're building, what problem it solves, and any relevant timelines…"
                   className="rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-900 placeholder-gray-400 outline-none resize-none transition-all duration-200 hover:border-indigo-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:bg-white" />
@@ -100,7 +83,7 @@ export default function ContactPage() {
               <div className="sm:col-span-2">
                 <button type="submit"
                   className="group w-full rounded-full px-8 py-4 text-sm font-bold text-white shadow-lg transition-all duration-200 hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0"
-                  style={{background:"linear-gradient(135deg,#4f7df9,#a855f7)"}}>
+                  style={{background:"linear-gradient(135deg,#6366f1,#a855f7)"}}>
                   Send Message
                   <span className="ml-2 inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
                 </button>
@@ -122,7 +105,6 @@ export default function ContactPage() {
                 </div>
               ))}
             </div>
-
             <div>
               <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">Response Time</p>
               <div className="rounded-2xl bg-white border border-gray-100 p-5 shadow-sm">
@@ -131,25 +113,19 @@ export default function ContactPage() {
                 </p>
               </div>
             </div>
-
             <div>
               <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">Follow Us</p>
-              <div className="flex gap-3 flex-wrap">
-                <a href="https://www.linkedin.com/company/inova-tech-solutions/?viewAsMember=true"
-                  target="_blank" rel="noopener noreferrer"
-                  className="rounded-full border border-gray-200 px-4 py-1.5 text-xs font-semibold text-gray-600 hover:border-indigo-300 hover:text-indigo-600 transition-all">
-                  LinkedIn
-                </a>
-                <a href="https://www.instagram.com/inova_tech_solution"
-                  target="_blank" rel="noopener noreferrer"
-                  className="rounded-full border border-gray-200 px-4 py-1.5 text-xs font-semibold text-gray-600 hover:border-pink-300 hover:text-pink-600 transition-all">
-                  Instagram
-                </a>
-                <a href="https://wa.me/918925246499"
-                  target="_blank" rel="noopener noreferrer"
-                  className="rounded-full border border-gray-200 px-4 py-1.5 text-xs font-semibold text-gray-600 hover:border-green-300 hover:text-green-600 transition-all">
-                  WhatsApp
-                </a>
+              <div className="flex gap-3">
+                {[
+                  { label: "LinkedIn",  href: "https://www.linkedin.com/company/inova-tech-solutions/?viewAsMember=true" },
+                  { label: "Instagram", href: "https://www.instagram.com/inova_tech_solution?mdxt=MWFxMWJ5bm45aG5kcg==" },
+                  { label: "WhatsApp",  href: "https://wa.me/918925246499" },
+                ].map(s => (
+                  <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
+                    className="rounded-full border border-gray-200 px-4 py-1.5 text-xs font-semibold text-gray-600 hover:border-indigo-300 hover:text-indigo-600 transition-all">
+                    {s.label}
+                  </a>
+                ))}
               </div>
             </div>
           </div>
