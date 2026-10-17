@@ -93,21 +93,6 @@ const process = [
   { n: "05", title: "Grow",           desc: "Ongoing retainer or clean handoff — we're built for the long relationship." },
 ];
 
-const testimonials = [
-  {
-    quote: "Inova Tech took our chaotic MVP and turned it into a platform that's serving 40,000 active users. They're not an agency — they're a genuine engineering partner.",
-    name: "Sarah K.", role: "CTO, HealthTech startup", init: "S",
-  },
-  {
-    quote: "The migration from our legacy monolith to microservices was massive. Inova Tech ran it with zero downtime and handed us back a codebase our team actually loves working in.",
-    name: "James O.", role: "VP Engineering, FinTech Scale-up", init: "J",
-  },
-  {
-    quote: "Our GPT-4o integration went from idea to production in six weeks. The RAG pipeline they built queries accuracy is at 94% — better than our internal analysts expected.",
-    name: "Leila M.", role: "Head of Product, Enterprise SaaS", init: "L",
-  },
-];
-
 const latestPosts = posts.slice(0, 3);
 
 const tagColors: Record<string, string> = {
@@ -439,33 +424,84 @@ export default function Home() {
       </section>
 
       {/* ════════════════════════════════════════════════════
-          TESTIMONIALS
+          RESULTS WE DELIVER
       ════════════════════════════════════════════════════ */}
       <section className="bg-gray-50 py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase mb-3">Testimonials</p>
-            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">What Our Clients Say</h2>
+            <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase mb-3">Impact</p>
+            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">Results We Deliver</h2>
+            <p className="mt-4 max-w-2xl mx-auto text-gray-500">
+              We measure success by what our clients achieve — not by hours billed or features shipped.
+            </p>
           </div>
+
+          {/* Result cards */}
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {testimonials.map(t => (
-              <div key={t.name}
+            {[
+              {
+                metric: "3× faster",
+                context: "Average time-to-market vs. in-house teams",
+                icon: "🚀",
+                bg: "bg-indigo-50",
+                tc: "text-indigo-600",
+              },
+              {
+                metric: "+34% YoY",
+                context: "Average revenue growth across client portfolio",
+                icon: "📈",
+                bg: "bg-green-50",
+                tc: "text-green-600",
+              },
+              {
+                metric: "99.9%",
+                context: "Uptime SLA maintained across all production systems",
+                icon: "🔒",
+                bg: "bg-sky-50",
+                tc: "text-sky-600",
+              },
+              {
+                metric: "6 weeks",
+                context: "Average MVP to live product for startup engagements",
+                icon: "⚡",
+                bg: "bg-orange-50",
+                tc: "text-orange-500",
+              },
+              {
+                metric: "70%+",
+                context: "Clients who stay on retainer after initial project launch",
+                icon: "🤝",
+                bg: "bg-purple-50",
+                tc: "text-purple-600",
+              },
+              {
+                metric: "47% avg",
+                context: "Cloud infrastructure cost reduction after our DevOps audit",
+                icon: "☁️",
+                bg: "bg-rose-50",
+                tc: "text-rose-500",
+              },
+            ].map(r => (
+              <div key={r.metric}
                 className="group rounded-2xl bg-white border border-gray-100 p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                {/* quote mark */}
-                <span className="text-4xl font-serif leading-none bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">&ldquo;</span>
-                <p className="mt-2 text-sm text-gray-700 leading-relaxed">{t.quote}</p>
-                <div className="mt-6 flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full text-white text-sm font-bold shrink-0"
-                    style={{background:"linear-gradient(135deg,#6366f1,#a855f7)"}}>
-                    {t.init}
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-gray-900">{t.name}</p>
-                    <p className="text-xs text-gray-400">{t.role}</p>
-                  </div>
-                </div>
+                <span className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl ${r.bg} mb-5`}>
+                  {r.icon}
+                </span>
+                <p className={`text-3xl font-extrabold ${r.tc}`}>{r.metric}</p>
+                <p className="mt-2 text-sm text-gray-500 leading-relaxed">{r.context}</p>
               </div>
             ))}
+          </div>
+
+          {/* Bottom CTA */}
+          <div className="mt-14 text-center">
+            <p className="text-gray-500 text-sm mb-5">Ready to add your name to these numbers?</p>
+            <Link href="/contact"
+              className="group inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-bold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl"
+              style={{background:"linear-gradient(135deg,#4f7df9,#a855f7)"}}>
+              Start a Conversation
+              <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+            </Link>
           </div>
         </div>
       </section>
