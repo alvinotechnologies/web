@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Contact — Inova Tech",
-  description: "Get in touch with Inova Tech. Tell us about your project and we'll respond within one business day.",
+  title: "Contact — Alvino Technologies",
+  description: "Get in touch with Alvino Technologies. Tell us about your project and we'll respond within one business day.",
 };
 
 const offices = [

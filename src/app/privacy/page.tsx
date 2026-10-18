@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Inova Tech",
-  description: "Inova Tech's privacy policy — how we collect, use, and protect your data.",
+  title: "Privacy Policy — Alvino Technologies",
+  description: "Alvino Technologies's privacy policy — how we collect, use, and protect your data.",
 };
 
 const sections = [
@@ -132,7 +132,7 @@ export default function PrivacyPage() {
           <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl">Privacy Policy</h1>
           <p className="mt-4 text-gray-500">Last updated: October 2026</p>
           <p className="mt-4 max-w-2xl text-gray-600 leading-relaxed">
-            At Inova Tech, we respect your privacy and are committed to protecting your personal data.
+            At Alvino Technologies, we respect your privacy and are committed to protecting your personal data.
             This policy explains what information we collect, why we collect it, and how we use it.
           </p>
         </div>
