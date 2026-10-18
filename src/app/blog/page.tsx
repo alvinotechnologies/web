@@ -38,7 +38,7 @@ export default function BlogPage() {
       </section>
 
       {/* ── Posts ── */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-12 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
           {/* Featured */}
@@ -101,7 +101,7 @@ export default function BlogPage() {
       </section>
 
       {/* ── Newsletter CTA ── light, no dark bg */}
-      <section className="bg-gray-50 border-t border-gray-100 py-20">
+      <section className="bg-gray-50 border-t border-gray-100 py-12 sm:py-20">
         <div className="mx-auto max-w-2xl px-4 text-center">
           <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase mb-3">Newsletter</p>
           <h2 className="text-3xl font-extrabold text-gray-900">Stay in the Loop</h2>

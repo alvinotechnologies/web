@@ -89,7 +89,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ── Services grid ── */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-14 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 md:grid-cols-2">
             {services.map(s => (
@@ -117,9 +117,9 @@ export default function ServicesPage() {
       </section>
 
       {/* ── Process ── */}
-      <section className="bg-gray-50 py-24">
+      <section className="bg-gray-50 py-14 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
+          <div className="text-center mb-8 sm:mb-14">
             <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase mb-3">How We Work</p>
             <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">Our Delivery Process</h2>
             <p className="mt-4 max-w-2xl mx-auto text-gray-500">A repeatable, transparent process built from day one with clarity and speed.</p>

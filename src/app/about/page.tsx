@@ -84,7 +84,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── Mission & Vision ── */}
-      <section className="bg-gray-50 py-24">
+      <section className="bg-gray-50 py-14 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid gap-8 lg:grid-cols-2">
           <div className="rounded-2xl bg-white border border-gray-100 p-10 shadow-sm hover:shadow-xl transition-all duration-300">
             <span className="inline-block rounded-full bg-indigo-50 px-4 py-1.5 text-xs font-bold text-indigo-600 uppercase tracking-widest mb-5">Our Mission</span>
@@ -116,9 +116,9 @@ export default function AboutPage() {
       </section>
 
       {/* ── Values ── */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-14 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
+          <div className="text-center mb-8 sm:mb-14">
             <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase mb-3">How We Work</p>
             <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">Our Core Values</h2>
             <p className="mt-4 max-w-2xl mx-auto text-gray-500">
@@ -138,9 +138,9 @@ export default function AboutPage() {
       </section>
 
       {/* ── Why Choose Us ── */}
-      <section className="bg-gray-50 py-24">
+      <section className="bg-gray-50 py-14 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
+          <div className="text-center mb-8 sm:mb-14">
             <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase mb-3">Why Alvino Technologies</p>
             <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">What Makes Us Different</h2>
             <p className="mt-4 max-w-2xl mx-auto text-gray-500">
@@ -184,9 +184,9 @@ export default function AboutPage() {
       </section>
 
       {/* ── How We Work ── */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-14 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
+          <div className="text-center mb-8 sm:mb-14">
             <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase mb-3">Our Process</p>
             <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">How We Work</h2>
             <p className="mt-4 max-w-2xl mx-auto text-gray-500">

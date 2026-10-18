@@ -40,7 +40,7 @@ export default function ContactPage() {
       </section>
 
       {/* ── Form + info ── */}
-      <section className="bg-gray-50 py-20">
+      <section className="bg-gray-50 py-12 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid gap-16 lg:grid-cols-5">
 
           {/* Form */}
@@ -132,9 +132,9 @@ export default function ContactPage() {
       </section>
 
       {/* ── FAQs ── */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-12 sm:py-20">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8 sm:mb-12">
             <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase mb-3">FAQ</p>
             <h2 className="text-3xl font-extrabold text-gray-900">Common Questions</h2>
           </div>

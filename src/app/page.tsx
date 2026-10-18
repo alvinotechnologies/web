@@ -130,35 +130,33 @@ export default function Home() {
           aria-hidden
         />
 
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 sm:pt-28 pb-12 sm:pb-16 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center w-full">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-12 sm:pb-16 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center w-full">
 
-          {/* ── LEFT copy ── dark text on the light/white bg image */}
+          {/* ── LEFT copy ── */}
           <div className="flex flex-col">
-            {/* tagline pill */}
-            <span className="inline-flex items-center self-start gap-2 rounded-full border border-gray-300 bg-white/80 backdrop-blur-sm px-5 py-1.5 text-xs font-bold text-gray-600 uppercase tracking-[0.25em] mb-7">
-              Innovate &nbsp;·&nbsp; Execute &nbsp;·&nbsp; Elevate
+            {/* tagline pill — no uppercase tracking on mobile to prevent wrapping */}
+            <span className="inline-flex items-center self-start gap-1.5 rounded-full border border-gray-300 bg-white/80 backdrop-blur-sm px-4 py-1.5 text-[11px] sm:text-xs font-bold text-gray-600 mb-6 whitespace-nowrap">
+              Innovate · Execute · Elevate
             </span>
 
-            <h1 className="text-3xl font-extrabold leading-[1.1] text-gray-900 sm:text-5xl lg:text-[4.2rem]">
-              Turning Ideas Into
-              <br />
+            <h1 className="text-[2rem] font-extrabold leading-[1.12] text-gray-900 sm:text-5xl lg:text-[4.2rem]">
+              Turning Ideas Into{" "}
               <span className="bg-gradient-to-r from-indigo-600 via-purple-500 to-pink-500 bg-clip-text text-transparent">
                 Intelligent Products
-              </span>
-              <br />
+              </span>{" "}
               That Scale.
             </h1>
 
-            <p className="mt-6 max-w-lg text-lg leading-relaxed text-gray-600">
+            <p className="mt-5 w-full text-base sm:text-lg leading-relaxed text-gray-600">
               Alvino Technologies architects, builds, and launches world-class digital products — from
               high-growth SaaS platforms and AI-powered tools to mobile apps and enterprise
               cloud solutions that drive measurable business outcomes.
             </p>
 
-            <div className="mt-10 flex flex-wrap items-center gap-5">
+            <div className="mt-8 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-4">
               {/* primary CTA */}
               <Link href="/contact"
-                className="group inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-bold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl"
+                className="group inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl w-full sm:w-auto"
                 style={{background:"linear-gradient(135deg,#6366f1,#a855f7)"}}>
                 Start Your Project
                 <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
@@ -166,8 +164,8 @@ export default function Home() {
 
               {/* secondary */}
               <Link href="/about"
-                className="group inline-flex items-center gap-3 text-sm font-semibold text-gray-700 hover:text-indigo-600 transition-colors duration-200">
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white shadow-md ring-1 ring-gray-200 text-indigo-600 transition-all duration-200 group-hover:ring-indigo-400 group-hover:shadow-lg text-base">
+                className="group inline-flex items-center justify-center gap-3 text-sm font-semibold text-gray-700 hover:text-indigo-600 transition-colors duration-200 w-full sm:w-auto">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white shadow-md ring-1 ring-gray-200 text-indigo-600 transition-all duration-200 group-hover:ring-indigo-400 group-hover:shadow-lg text-sm">
                   ▶
                 </span>
                 <span>
@@ -177,18 +175,16 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Mobile-only: stats + service pills — shown instead of desktop right column */}
-            <div className="mt-10 lg:hidden">
-              {/* Stats row */}
-              <div className="grid grid-cols-4 gap-3 text-center mb-6">
+            {/* Mobile-only: stats + service pills */}
+            <div className="mt-8 lg:hidden">
+              <div className="grid grid-cols-4 gap-2 text-center mb-5">
                 {[{v:"20+",l:"Projects"},{v:"15+",l:"Clients"},{v:"2026",l:"Founded"},{v:"99.9%",l:"Uptime"}].map(s=>(
-                  <div key={s.l}>
-                    <p className="text-lg font-extrabold text-gray-900">{s.v}</p>
-                    <p className="text-[11px] text-gray-400 mt-0.5">{s.l}</p>
+                  <div key={s.l} className="bg-white/70 rounded-xl py-2.5 px-1">
+                    <p className="text-sm font-extrabold text-gray-900">{s.v}</p>
+                    <p className="text-[10px] text-gray-400 mt-0.5">{s.l}</p>
                   </div>
                 ))}
               </div>
-              {/* Service pills */}
               <div className="flex flex-wrap gap-2">
                 {[
                   {label:"Websites",  bg:"bg-blue-50",   tc:"text-blue-600"  },
@@ -316,9 +312,9 @@ export default function Home() {
       {/* ════════════════════════════════════════════════════
           SERVICES PREVIEW
       ════════════════════════════════════════════════════ */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-14 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
+          <div className="text-center mb-8 sm:mb-8 sm:mb-14">
             <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase mb-3">What We Build</p>
             <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
               End-to-End Technology Services
@@ -360,8 +356,8 @@ export default function Home() {
       {/* ════════════════════════════════════════════════════
           WHY INOVA  —  light bg, logo visual on right
       ════════════════════════════════════════════════════ */}
-      <section className="bg-gray-50 py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid gap-16 lg:grid-cols-2 items-center">
+      <section className="bg-gray-50 py-14 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid gap-10 lg:grid-cols-2 items-center">
           {/* copy */}
           <div>
             <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase mb-3">Why Alvino Technologies</p>
@@ -422,9 +418,9 @@ export default function Home() {
       {/* ════════════════════════════════════════════════════
           HOW WE WORK — process steps
       ════════════════════════════════════════════════════ */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-14 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
+          <div className="text-center mb-8 sm:mb-8 sm:mb-14">
             <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase mb-3">Our Process</p>
             <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">How We Deliver</h2>
             <p className="mt-4 max-w-xl mx-auto text-gray-500">
@@ -454,9 +450,9 @@ export default function Home() {
       {/* ════════════════════════════════════════════════════
           RESULTS WE DELIVER
       ════════════════════════════════════════════════════ */}
-      <section className="bg-gray-50 py-24">
+      <section className="bg-gray-50 py-14 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
+          <div className="text-center mb-8 sm:mb-8 sm:mb-14">
             <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase mb-3">Impact</p>
             <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">Results We Deliver</h2>
             <p className="mt-4 max-w-2xl mx-auto text-gray-500">
@@ -537,9 +533,9 @@ export default function Home() {
       {/* ════════════════════════════════════════════════════
           BLOG PREVIEW
       ════════════════════════════════════════════════════ */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-14 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between mb-12">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-8 sm:mb-12 gap-3">
             <div>
               <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase mb-2">Insights</p>
               <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">From the Alvino Technologies Blog</h2>
@@ -576,7 +572,7 @@ export default function Home() {
       {/* ════════════════════════════════════════════════════
           CTA BAND  —  light, matching footer
       ════════════════════════════════════════════════════ */}
-      <section className="bg-gray-50 border-t border-gray-100 py-24">
+      <section className="bg-gray-50 border-t border-gray-100 py-14 sm:py-24">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
             Ready to Build Something

@@ -1,190 +1,290 @@
+import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
-import { posts } from "../data";
+import type { Metadata } from "next";
 
-export function generateStaticParams() {
-  return posts.map(p => ({ slug: p.slug }));
-}
-
-export async function generateMetadata(props: PageProps<"/blog/[slug]">) {
-  const { slug } = await props.params;
-  const post = posts.find(p => p.slug === slug);
-  if (!post) return {};
-  return {
-    title: `${post.title} — Inova Blog`,
-    description: post.excerpt,
-  };
-}
-
-const tagColors: Record<string, string> = {
-  Engineering: "bg-blue-50 text-blue-600",
-  Product:     "bg-purple-50 text-purple-600",
-  AI:          "bg-rose-50 text-rose-600",
-  Mobile:      "bg-green-50 text-green-600",
-  Cloud:       "bg-sky-50 text-sky-600",
+export const metadata: Metadata = {
+  title: "About — Alvino Technologies",
+  description: "Learn about Alvino Technologies's mission, vision, values, and the team behind our successful digital products.",
 };
 
-export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
-  const { slug } = await props.params;
-  const post = posts.find(p => p.slug === slug);
-  if (!post) notFound();
+const values = [
+  { icon: "🎯", title: "Clarity Over Complexity",   desc: "We favour simple, well-understood solutions over clever ones. Maintainability is a feature." },
+  { icon: "🚀", title: "Bias for Action",            desc: "Ideas are worthless without execution. We move decisively and learn from real feedback." },
+  { icon: "🔒", title: "Trust Through Transparency", desc: "No hidden blockers or spin. We share the truth — including the uncomfortable parts." },
+  { icon: "♾️", title: "Continuous Improvement",     desc: "Every project ends with a retrospective. Every system has an owner who cares about its quality." },
+  { icon: "🌍", title: "Impact at Scale",            desc: "We measure success by how much value we create for our clients' customers — not just deliverables." },
+  { icon: "🤝", title: "People First",               desc: "Great products are built by happy, respected teams. We invest in culture, not just code." },
+];
 
-  const related = posts.filter(p => p.slug !== slug && p.tag === post.tag).slice(0, 2);
+const whyChoose = [
+  {
+    icon: "🏆",
+    title: "Proven Track Record",
+    desc: "Every project we ship is treated like our own product — built with care, speed, and a long-term mindset.",
+  },
+  {
+    icon: "⚡",
+    title: "Speed Without Compromise",
+    desc: "Agile two-week sprints, CI/CD pipelines on day one, and automated testing baked into every project. Fast delivery that doesn't cut corners.",
+  },
+  {
+    icon: "🔍",
+    title: "Full Transparency",
+    desc: "Live project boards, weekly video demos, and direct Slack access to your engineers. You always know exactly where your project stands.",
+  },
+  {
+    icon: "🌐",
+    title: "End-to-End Capability",
+    desc: "Strategy, UX design, frontend, backend, mobile, cloud, AI, and marketing — all under one roof. No gaps, no hand-offs, no finger-pointing.",
+  },
+  {
+    icon: "🔒",
+    title: "Security by Default",
+    desc: "OWASP top-10 compliance, encryption at rest and in transit, and regular penetration testing built into every engagement from day one.",
+  },
+  {
+    icon: "🤝",
+    title: "Long-Term Relationships",
+    desc: "Over 70% of our revenue comes from returning clients. We measure our success by how much your business grows after we launch.",
+  },
+];
 
-  const renderContent = (raw: string) => {
-    return raw.trim().split("\n\n").map((block, i) => {
-      const trimmed = block.trim();
-      if (!trimmed) return null;
-
-      if (trimmed.startsWith("## ")) {
-        return (
-          <h2 key={i} className="mt-10 mb-4 text-xl font-extrabold text-gray-900">
-            {trimmed.slice(3)}
-          </h2>
-        );
-      }
-
-      if (trimmed.startsWith("|")) {
-        const rows = trimmed.split("\n").filter(r => !r.match(/^\|[-| ]+\|$/));
-        return (
-          <div key={i} className="my-6 overflow-x-auto rounded-xl border border-gray-100 shadow-sm">
-            <table className="w-full text-sm">
-              <tbody>
-                {rows.map((row, ri) => (
-                  <tr key={ri} className={ri === 0 ? "bg-gray-50 font-semibold" : "border-t border-gray-100"}>
-                    {row.split("|").filter((_, ci) => ci > 0 && ci < row.split("|").length - 1).map((cell, ci) => (
-                      <td key={ci} className="px-4 py-3 text-gray-700">{cell.trim()}</td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        );
-      }
-
-      if (trimmed.split("\n").every(l => l.startsWith("- "))) {
-        return (
-          <ul key={i} className="my-4 space-y-2">
-            {trimmed.split("\n").map((item, li) => (
-              <li key={li} className="flex gap-2 text-gray-700 text-sm leading-relaxed">
-                <svg className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                {item.slice(2)}
-              </li>
-            ))}
-          </ul>
-        );
-      }
-
-      if (trimmed.startsWith("```")) {
-        const code = trimmed.replace(/^```\w*\n?/, "").replace(/```$/, "");
-        return (
-          <pre key={i} className="my-6 overflow-x-auto rounded-xl bg-gray-950 p-5 text-xs text-green-400 leading-relaxed">
-            <code>{code}</code>
-          </pre>
-        );
-      }
-
-      return (
-        <p key={i} className="my-4 text-gray-600 leading-relaxed text-sm sm:text-base">
-          {trimmed.replace(/\*\*(.*?)\*\*/g, "$1").replace(/`(.*?)`/g, "$1").replace(/<em>(.*?)<\/em>/g, "$1")}
-        </p>
-      );
-    });
-  };
-
+export default function AboutPage() {
   return (
     <div className="pt-20">
 
-      {/* ── Post hero ── white, no dark bg */}
+      {/* ── Hero ── */}
       <section className="bg-white border-b border-gray-100 py-20 relative overflow-hidden">
         <div aria-hidden className="pointer-events-none absolute inset-0"
-          style={{background:"radial-gradient(ellipse at 70% 50%, rgba(99,102,241,0.06) 0%, transparent 60%)"}} />
-        <div className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <Link href="/blog"
-            className="inline-flex items-center gap-2 text-xs font-bold text-indigo-600 hover:text-indigo-500 transition-colors mb-6">
-            ← Back to Blog
-          </Link>
-          <span className={`inline-block rounded-full px-3 py-1 text-xs font-semibold mb-4 ${tagColors[post.tag] ?? "bg-gray-100 text-gray-600"}`}>
-            {post.tag}
-          </span>
-          <h1 className="text-3xl font-extrabold text-gray-900 leading-tight sm:text-4xl lg:text-5xl">
-            {post.title}
-          </h1>
-          <p className="mt-4 text-gray-500 text-lg leading-relaxed">{post.excerpt}</p>
-          <div className="mt-8 flex items-center gap-4">
-            <div className="flex h-11 w-11 items-center justify-center rounded-full text-white text-sm font-bold shrink-0"
+          style={{background:"radial-gradient(ellipse at 80% 50%, rgba(99,102,241,0.06) 0%, transparent 60%)"}} />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid gap-12 lg:grid-cols-2 items-center">
+          <div>
+            <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase mb-4">About Alvino Technologies</p>
+            <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl lg:text-6xl leading-tight">
+              We Build the
+              <span className="block bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                Digital Future.
+              </span>
+            </h1>
+            <p className="mt-6 text-lg text-gray-500 leading-relaxed">
+              Alvino Technologies is a full-service digital innovation studio. We help companies —
+              from seed-stage startups to global enterprises — design, build, and scale
+              technology that creates real, measurable impact.
+            </p>
+          </div>
+          <div className="flex justify-center">
+            <div className="relative h-72 w-72 rounded-3xl flex items-center justify-center shadow-xl overflow-hidden"
               style={{background:"linear-gradient(135deg,#6366f1,#a855f7)"}}>
-              {post.author.charAt(0)}
+              <div aria-hidden className="absolute inset-0 opacity-10"
+                style={{backgroundImage:"radial-gradient(circle at 30% 30%, white 1px, transparent 1px)",backgroundSize:"28px 28px"}} />
+              <Image src="/logo.png" alt="Alvino Technologies" width={180} height={180} className="object-contain relative z-10" />
             </div>
-            <div>
-              <p className="text-sm font-semibold text-gray-900">{post.author}</p>
-              <p className="text-xs text-gray-400">{post.authorRole}</p>
-            </div>
-            <span className="ml-auto text-xs text-gray-400">{post.date} · {post.read}</span>
           </div>
         </div>
       </section>
 
-      {/* ── Article body ── */}
-      <section className="bg-white py-16">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <article className="prose-sm sm:prose max-w-none">
-            {renderContent(post.content)}
-          </article>
-
-          <div className="mt-14 flex flex-wrap items-center gap-3 border-t border-gray-100 pt-8">
-            <span className={`rounded-full px-3 py-1 text-xs font-semibold ${tagColors[post.tag] ?? "bg-gray-100 text-gray-600"}`}>
-              {post.tag}
-            </span>
-            <span className="ml-auto text-sm text-gray-500">Share:</span>
-            <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=https://inova.io/blog/${post.slug}`}
-              target="_blank" rel="noopener noreferrer"
-              className="rounded-full border border-gray-200 px-4 py-1.5 text-xs font-semibold text-gray-700 hover:border-indigo-300 hover:text-indigo-600 transition-all">
-              X / Twitter
-            </a>
-            <a href={`https://www.linkedin.com/sharing/share-offsite/?url=https://inova.io/blog/${post.slug}`}
-              target="_blank" rel="noopener noreferrer"
-              className="rounded-full border border-gray-200 px-4 py-1.5 text-xs font-semibold text-gray-700 hover:border-indigo-300 hover:text-indigo-600 transition-all">
-              LinkedIn
-            </a>
+      {/* ── Mission & Vision ── */}
+      <section className="bg-gray-50 py-14 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid gap-8 lg:grid-cols-2">
+          <div className="rounded-2xl bg-white border border-gray-100 p-10 shadow-sm hover:shadow-xl transition-all duration-300">
+            <span className="inline-block rounded-full bg-indigo-50 px-4 py-1.5 text-xs font-bold text-indigo-600 uppercase tracking-widest mb-5">Our Mission</span>
+            <h2 className="text-2xl font-extrabold text-gray-900 mb-4">To democratise world-class technology.</h2>
+            <p className="text-gray-600 leading-relaxed">
+              We believe exceptional software shouldn&apos;t be the exclusive preserve of companies
+              with massive engineering budgets. Alvino Technologies exists to give ambitious businesses — regardless
+              of size — access to the same calibre of product thinking, design craft, and engineering
+              rigour as the world&apos;s best tech companies.
+            </p>
+            <p className="mt-4 text-gray-600 leading-relaxed">
+              Every engagement is shaped by one question: <em>&ldquo;What would this look like if we built it at the highest possible standard?&rdquo;</em>
+            </p>
+          </div>
+          <div className="rounded-2xl bg-white border border-gray-100 p-10 shadow-sm hover:shadow-xl transition-all duration-300">
+            <span className="inline-block rounded-full bg-purple-50 px-4 py-1.5 text-xs font-bold text-purple-600 uppercase tracking-widest mb-5">Our Vision</span>
+            <h2 className="text-2xl font-extrabold text-gray-900 mb-4">A world where great ideas find great technology.</h2>
+            <p className="text-gray-600 leading-relaxed">
+              Too many transformative ideas never reach users because the founders behind them
+              couldn&apos;t find a trusted technology partner. We&apos;re building the studio that closes
+              that gap — combining deep technical expertise with genuine curiosity about the
+              problems our clients are trying to solve.
+            </p>
+            <p className="mt-4 text-gray-600 leading-relaxed">
+              By 2030, we aim to have directly contributed to products used by 50 million people worldwide.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* ── Related posts ── */}
-      {related.length > 0 && (
-        <section className="bg-gray-50 py-16">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-xl font-extrabold text-gray-900 mb-8">Related Articles</h2>
-            <div className="grid gap-6 sm:grid-cols-2">
-              {related.map(p => (
-                <Link key={p.slug} href={`/blog/${p.slug}`}
-                  className="group rounded-2xl border border-gray-100 bg-white p-7 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                  <span className={`inline-block rounded-full px-3 py-1 text-xs font-semibold mb-3 ${tagColors[p.tag] ?? "bg-gray-100 text-gray-600"}`}>
-                    {p.tag}
-                  </span>
-                  <h3 className="text-base font-bold text-gray-900 group-hover:text-indigo-600 transition-colors">{p.title}</h3>
-                  <p className="mt-2 text-sm text-gray-500 line-clamp-2">{p.excerpt}</p>
-                  <p className="mt-4 text-xs text-gray-400">{p.date} · {p.read}</p>
-                </Link>
+      {/* ── Values ── */}
+      <section className="bg-white py-14 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 sm:mb-8 sm:mb-14">
+            <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase mb-3">How We Work</p>
+            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">Our Core Values</h2>
+            <p className="mt-4 max-w-2xl mx-auto text-gray-500">
+              These aren&apos;t marketing words — they&apos;re the principles we apply every day in every engagement.
+            </p>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {values.map(v => (
+              <div key={v.title} className="group rounded-2xl bg-gray-50 border border-gray-100 p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:bg-white">
+                <span className="text-3xl">{v.icon}</span>
+                <h3 className="mt-4 text-base font-bold text-gray-900 group-hover:text-indigo-600 transition-colors">{v.title}</h3>
+                <p className="mt-2 text-sm text-gray-500 leading-relaxed">{v.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Why Choose Us ── */}
+      <section className="bg-gray-50 py-14 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 sm:mb-8 sm:mb-14">
+            <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase mb-3">Why Alvino Technologies</p>
+            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">What Makes Us Different</h2>
+            <p className="mt-4 max-w-2xl mx-auto text-gray-500">
+              We&apos;ve refined our approach across hundreds of projects. Here&apos;s what clients
+              consistently tell us sets us apart.
+            </p>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {whyChoose.map(w => (
+              <div key={w.title}
+                className="group rounded-2xl bg-white border border-gray-100 p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                <span className="text-4xl">{w.icon}</span>
+                <h3 className="mt-4 text-base font-bold text-gray-900 group-hover:text-indigo-600 transition-colors">
+                  {w.title}
+                </h3>
+                <p className="mt-2 text-sm text-gray-500 leading-relaxed">{w.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Client industries strip */}
+          <div className="mt-16 rounded-2xl bg-white border border-gray-100 p-8 shadow-sm">
+            <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase text-center mb-6">
+              Industries We Serve
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              {[
+                "FinTech","HealthTech","E-Commerce","Logistics","SaaS",
+                "EdTech","Real Estate","Retail","AI / ML","Enterprise",
+                "Media","Non-Profit",
+              ].map(ind => (
+                <span key={ind}
+                  className="rounded-full border border-gray-200 bg-gray-50 px-5 py-2 text-sm font-medium text-gray-700 hover:border-indigo-300 hover:text-indigo-600 hover:bg-indigo-50 transition-all duration-200 cursor-default">
+                  {ind}
+                </span>
               ))}
             </div>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
-      {/* ── CTA ── light, no dark bg */}
-      <section className="bg-white border-t border-gray-100 py-16 text-center">
-        <div className="mx-auto max-w-xl px-4">
-          <h2 className="text-2xl font-extrabold text-gray-900">Enjoyed this article?</h2>
-          <p className="mt-3 text-gray-500">Let&apos;s talk about how Inova can help you solve similar challenges.</p>
-          <Link href="/contact"
-            className="group mt-6 inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl"
-            style={{background:"linear-gradient(135deg,#6366f1,#a855f7)"}}>
-            Start a Conversation
-            <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
-          </Link>
+      {/* ── How We Work ── */}
+      <section className="bg-white py-14 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 sm:mb-8 sm:mb-14">
+            <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase mb-3">Our Process</p>
+            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">How We Work</h2>
+            <p className="mt-4 max-w-2xl mx-auto text-gray-500">
+              A transparent, repeatable delivery process built on trust, real communication,
+              and a shared obsession with outcomes.
+            </p>
+          </div>
+
+          {/* Steps */}
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                n: "01",
+                title: "Discovery & Scoping",
+                desc: "We spend time understanding your business goals, target users, and technical constraints before writing a single line of code. No assumptions.",
+                icon: "🔍",
+              },
+              {
+                n: "02",
+                title: "Architecture & Planning",
+                desc: "Our technical leads design the right stack, define sprint milestones, and agree KPIs upfront. You know exactly what you're getting and when.",
+                icon: "🏗️",
+              },
+              {
+                n: "03",
+                title: "Design & Prototype",
+                desc: "High-fidelity wireframes and interactive prototypes are tested with real users before development begins — saving cost and catching problems early.",
+                icon: "🎨",
+              },
+              {
+                n: "04",
+                title: "Agile Build & Iterate",
+                desc: "Two-week sprints with continuous deployment. You see a live demo every fortnight and give direct feedback to your assigned engineers.",
+                icon: "⚡",
+              },
+              {
+                n: "05",
+                title: "QA & Launch",
+                desc: "Automated test suites, security audits, and load testing before every release. We handle go-live, monitoring, and post-launch stabilisation.",
+                icon: "🚀",
+              },
+              {
+                n: "06",
+                title: "Grow & Optimise",
+                desc: "Post-launch isn't the end — it's the beginning. We analyse real user behaviour, run A/B tests, and iterate continuously to compound your results.",
+                icon: "📈",
+              },
+            ].map((step, i) => (
+              <div key={step.n}
+                className="group relative rounded-2xl border border-gray-100 bg-gray-50 p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:bg-white overflow-hidden">
+                {/* step number accent */}
+                <span className="absolute top-5 right-6 text-6xl font-extrabold text-gray-100 select-none transition-colors duration-300 group-hover:text-indigo-50">
+                  {step.n}
+                </span>
+                <span className="text-3xl mb-4 block">{step.icon}</span>
+                <h3 className="text-base font-bold text-gray-900 group-hover:text-indigo-600 transition-colors">
+                  {step.title}
+                </h3>
+                <p className="mt-2 text-sm text-gray-500 leading-relaxed">{step.desc}</p>
+                {/* connector dot */}
+                {i < 5 && (
+                  <div className="hidden lg:block absolute -right-4 top-1/2 -translate-y-1/2 h-2 w-2 rounded-full bg-indigo-200 z-10" />
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom CTA band */}
+          <div className="mt-14 rounded-2xl p-8 text-center"
+            style={{background:"linear-gradient(135deg,rgba(99,102,241,0.06),rgba(168,85,247,0.06))"}}>
+            <p className="text-lg font-bold text-gray-900">Ready to see this process in action?</p>
+            <p className="mt-2 text-gray-500 text-sm">Book a free 30-minute discovery call — no obligation, no pitch deck.</p>
+            <a href="/contact"
+              className="mt-5 inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl"
+              style={{background:"linear-gradient(135deg,#4f7df9,#a855f7)"}}>
+              Book a Discovery Call →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="bg-gray-50 border-t border-gray-100 py-20 text-center">
+        <div className="mx-auto max-w-2xl px-4">
+          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">Want to build with us?</h2>
+          <p className="mt-4 text-gray-500">We&apos;re always looking for ambitious clients and talented team members.</p>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <Link href="/contact"
+              className="group inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-bold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl"
+              style={{background:"linear-gradient(135deg,#4f7df9,#a855f7)"}}>
+              Start a Project
+              <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+            </Link>
+            <Link href="/blog"
+              className="inline-flex items-center gap-2 rounded-full border border-gray-300 px-8 py-4 text-sm font-semibold text-gray-700 transition-all duration-200 hover:border-indigo-300 hover:text-indigo-600">
+              Read Our Blog →
+            </Link>
+          </div>
         </div>
       </section>
     </div>

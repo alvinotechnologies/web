@@ -74,7 +74,7 @@ export default function SolutionsPage() {
       </section>
 
       {/* ── Solutions grid ── */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-14 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid gap-8 md:grid-cols-2">
           {solutions.map(s => (
             <div key={s.title}
@@ -102,9 +102,9 @@ export default function SolutionsPage() {
       </section>
 
       {/* ── Why Alvino Technologies ── */}
-      <section className="bg-gray-50 py-24">
+      <section className="bg-gray-50 py-14 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
+          <div className="text-center mb-8 sm:mb-14">
             <p className="text-xs font-bold tracking-[0.3em] text-indigo-600 uppercase mb-3">Why Choose Alvino Technologies</p>
             <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">What Sets Us Apart</h2>
             <p className="mt-4 max-w-2xl mx-auto text-gray-500">
