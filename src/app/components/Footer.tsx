@@ -68,7 +68,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block mb-6">
               <Image
-                src="/bg.png"
+                src="/web.jpeg"
                 alt="Alvino Technologies"
                 width={150}
                 height={50}

@@ -41,7 +41,7 @@ export default function Navbar() {
         {/* Logo — always links to home */}
         <Link href="/" className="flex items-center shrink-0" aria-label="Go to Alvino Technologies home">
           <Image
-            src="/bg.png"
+            src="/web.jpeg"
             alt="Alvino Technologies"
             width={180}
             height={60}
