@@ -98,12 +98,12 @@ export default function Footer() {
 
             {/* Contact */}
             <div className="mt-8 space-y-2">
-              <a href="mailto:information.inova@gmail.com"
+              <a href="mailto:alvinotechnologies@gmail.com"
                 className="flex items-center gap-2 text-sm text-gray-500 hover:text-indigo-600 transition-colors">
                 <svg className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
                 </svg>
-                information.inova@gmail.com
+                alvinotechnologies@gmail.com
               </a>
               <a href="tel:+918925246499"
                 className="flex items-center gap-2 text-sm text-gray-500 hover:text-indigo-600 transition-colors">

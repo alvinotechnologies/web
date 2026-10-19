@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 };
 
 const offices = [
-  { city: "India", address: "Bangalore, India", email: "information.inova@gmail.com", phone: "+91 8925246499" },
+  { city: "India", address: "Bangalore, India", email: "alvinotechnologies@gmail.com", phone: "+91 8925246499" },
 ];
 
 const faqs = [

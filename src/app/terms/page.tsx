@@ -120,7 +120,7 @@ We encourage you to review these terms periodically.`,
     title: "14. Contact Us",
     content: `If you have any questions about these Terms of Service, please contact us:
 
-**Email:** information.inova@gmail.com  
+**Email:** alvinotechnologies@gmail.com  
 **Phone:** +91 8925246499  
 **Address:** Bangalore, India`,
   },

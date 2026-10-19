@@ -81,7 +81,7 @@ You can control cookies through your browser settings. Disabling analytics cooki
 - **Objection:** Object to processing based on legitimate interest
 - **Withdraw consent:** Where processing is based on consent, you can withdraw it at any time
 
-To exercise any of these rights, contact us at **information.inova@gmail.com**. We will respond within 30 days.`,
+To exercise any of these rights, contact us at **alvinotechnologies@gmail.com**. We will respond within 30 days.`,
   },
   {
     title: "8. Data Security",
@@ -105,7 +105,7 @@ No method of transmission over the internet is 100% secure. While we strive to p
     title: "11. Contact Us",
     content: `If you have any questions, concerns, or requests regarding this Privacy Policy or how we handle your data, please contact us:
 
-**Email:** information.inova@gmail.com  
+**Email:** alvinotechnologies@gmail.com  
 **Phone:** +91 8925246499  
 **Address:** Bangalore, India`,
   },
