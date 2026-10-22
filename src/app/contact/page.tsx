@@ -175,7 +175,7 @@ export default function ContactPage() {
               <div className="flex gap-3">
                 {[
                   { label: "LinkedIn",  href: "https://www.linkedin.com/company/144016158/admin/edit/?editPageActiveTab=info" },
-                  { label: "Instagram", href: "https://www.instagram.com/inova_tech_solution" },
+                  { label: "Instagram", href: "https://www.instagram.com/alvino_technologies?obrf=MWFxMWJ5bm45aG5kcg==" },
                   { label: "WhatsApp",  href: "https://wa.me/918925246499" },
                 ].map(s => (
                   <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
