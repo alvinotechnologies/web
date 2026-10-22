@@ -174,7 +174,7 @@ export default function ContactPage() {
               <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">Connect With Us</p>
               <div className="flex gap-3">
                 {[
-                  { label: "LinkedIn",  href: "https://www.linkedin.com/company/inova-tech-solutions/?viewAsMember=true" },
+                  { label: "LinkedIn",  href: "https://www.linkedin.com/company/144016158/admin/edit/?editPageActiveTab=info" },
                   { label: "Instagram", href: "https://www.instagram.com/inova_tech_solution" },
                   { label: "WhatsApp",  href: "https://wa.me/918925246499" },
                 ].map(s => (
