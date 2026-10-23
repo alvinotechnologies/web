@@ -94,16 +94,7 @@ export default function ContactPage() {
                   <option>Not sure — I need advice</option>
                 </select>
               </div>
-              <div className="flex flex-col gap-1.5">
-                <label htmlFor="budget" className="text-xs font-bold text-gray-500 uppercase tracking-wide">Approximate Budget</label>
-                <select id="budget" className="rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-700 outline-none transition-all duration-200 hover:border-blue-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:bg-white">
-                  <option value="">Prefer not to say</option>
-                  <option>Under ₹50,000</option>
-                  <option>₹50,000 – ₹1,50,000</option>
-                  <option>₹1,50,000 – ₹5,00,000</option>
-                  <option>Above ₹5,00,000</option>
-                </select>
-              </div>
+
               <div className="sm:col-span-2 flex flex-col gap-1.5">
                 <label htmlFor="message" className="text-xs font-bold text-gray-500 uppercase tracking-wide">Tell Us About Your Business and Requirements *</label>
                 <textarea id="message" required rows={5}
